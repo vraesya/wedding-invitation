@@ -1,0 +1,261 @@
+body {
+  margin: 0;
+  font-family: "Playfair Display", serif;
+  overflow-x: hidden;
+  position: relative;
+}
+
+body.lock-scroll {
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* BACKGROUND */
+.bg {
+    position: fixed;
+    inset: 0;
+    background: url("img/bg.png") center / cover no-repeat;
+    z-index: -500;
+    opacity: 2;
+}
+.bg-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.65);
+  z-index: -1;
+}
+
+/* OPEN SCREEN */
+.open-screen {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  animation: fadeIn 2s ease;
+}
+.open-box {
+  background: rgba(255, 255, 255, 0.75);
+  padding: 80px 60px;
+  border-radius: 30px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+.open-box h1 {
+  font-family: "Great Vibes", cursive;
+  font-size: 4rem;
+  color: #9a6b5a;
+}
+#firstScreenName {
+  font-size: 1.8rem;
+  font-style: italic;
+  color: #7a5a4a;
+  margin-bottom: 15px;
+  min-height: 2em;
+}
+.btn-open {
+  margin-top: 30px;
+  padding: 14px 46px;
+  border-radius: 50px;
+  background: linear-gradient(135deg, #e8c7b0, #c9a27c);
+  border: none;
+  font-weight: bold;
+  box-shadow: 0 0 30px rgba(200, 160, 130, 0.6);
+  transition: 0.4s;
+  cursor: pointer;
+}
+.btn-open:hover { transform: scale(1.08); }
+
+/* INVITATION */
+.bride-groom {
+    animation: reveal 2s ease forwards; 
+    margin-top: 120px;
+}
+
+.date-countdown {
+    animation: reveal 2s ease forwards; 
+    margin-top: 120px;
+    opacity: 0;
+}
+
+
+.card-invite {
+  max-width: 80%;
+  margin: 80px auto;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 130px;
+  padding: 90px 50px;
+  box-shadow: 0 30px 80px rgba(0,0,0,.12);
+  position: relative;
+  text-align: center;
+}
+
+.card-invite::before {
+  content: "";
+  position: absolute;
+  inset: 20px;
+  border-radius: 122px;
+  border: 2px solid rgba(180,140,120,.35);
+}
+
+.card-crown{
+    position: absolute;
+    top: clamp(-16%, -10vw, -23%);   /* responsive overlap */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 550px;   /* responsive size */
+    z-index: 3;
+    opacity: 100%;
+}
+
+h2 { 
+    font-family: "Cinzel", serif; 
+    letter-spacing: 3px; 
+    color: #7a5a4a; 
+}
+
+h1.main-title {
+  font-family: "Great Vibes", cursive;
+  color: #9a6b5a;
+  font-size: 3.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.names { 
+    font-size: 2rem; 
+    font-weight: 600; 
+    color: #7b5244; 
+    margin-bottom: 15px; 
+}
+
+
+.divider { 
+    width:160px; 
+    height:2px; 
+    background: linear-gradient(to right, transparent, #c9a27c, transparent); 
+    margin:30px auto; 
+}
+
+.timeline { 
+    max-width:480px; 
+    margin:auto; 
+    text-align:left; 
+}
+
+.timeline span { 
+    float:right; 
+    font-weight:bold; 
+}
+
+.quote { 
+    font-style: italic; 
+    max-width:600px; 
+    margin:40px auto; 
+    color:#8a6a5a; 
+}
+
+/* COUNTDOWN – ONE LINE (NO OVERFLOW) */
+.countdown {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin: 30px auto 0;
+  flex-wrap: nowrap;
+}
+
+.countdown div {
+  width: 78px;                /* fixed width */
+  padding: 14px 8px;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,.12);
+  box-sizing: border-box;
+}
+
+.countdown span {
+  display: block;
+  font-size: clamp(1.4rem, 4vw, 1.8rem); /* responsive font */
+  font-weight: bold;
+  color: #9a6b5a;
+  line-height: 1;
+  white-space: nowrap;        /* prevent wrap */
+}
+
+.countdown small {
+  display: block;
+  margin-top: 4px;
+  font-size: 0.65rem;
+  letter-spacing: 1px;
+  color: #7a5a4a;
+  text-transform: uppercase;
+}
+
+
+/* Extra scroll space */
+body::after {
+  content: '';
+  display: block;
+  background-color: transparent;
+}
+
+.fullscreen-video {
+  object-fit: contain;   /* 🔥 INI KUNCI */
+  background: transparent;
+  display: block;
+}
+
+.card {
+  position: relative;
+  width: 100%;
+  padding-left: 50px;
+  padding-right: 50px;
+  border: none !important;
+  outline: none !important;
+  background: transparent;   /* PENTING */
+}
+
+.card img {
+  width: 100%;
+  display: block;
+  background: transparent;   /* jaga-jaga */
+}
+
+/* overlay konten */
+.overlay {
+  position: absolute;
+  inset: 0;
+  margin: 200px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 12px;
+
+  background: transparent;   /* TIDAK ADA KOTAK */
+  color: white;
+}
+
+/* button contoh */
+.overlay button {
+  background: rgba(0,0,0,0.6);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 16px;
+  cursor: pointer;
+}
+
+
+/* Animations */
+@keyframes fadeIn { from{opacity:0;} to{opacity:1;} }
+@keyframes reveal { from{opacity:0;transform:translateY(60px);} to{opacity:1;transform:translateY(0);} }
+
+/* Ultra small screens */
+@media (max-width: 360px) {
+  .countdown div {
+    width: 64px;
+    padding: 12px 6px;
+  }
+}
+

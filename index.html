@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="id" class="h-full">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wedding Invitation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="/_sdk/element_sdk.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&amp;family=Montserrat:wght@300;400;500;600&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Allura&family=Great+Vibes&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="h-full font-montserrat overflow-hidden">
+    <div id="app-container" class="h-full w-full overflow-auto smooth-scroll">
+      <!-- Cover Page -->
+      <section id="cover-page" class="min-h-full w-full relative flex items-center justify-center overflow-hidden">
+        <!-- Background with overlay -->
+        <div id="cover-bg" class="absolute inset-0"></div>
+        <div class="absolute inset-0 bg-black/60"></div>
+        <!-- Content -->
+        <div class="relative z-10 text-center px-6 py-12 fade-in">
+          <div class="w-full max-w-md mx-auto h-32 md:h-30 overflow-hidden relative">
+            <img
+              src="img/name-up.svg"
+              alt=""
+              class="w-full h-auto object-contain"
+              style="filter: drop-shadow(0 2px 1.5px rgba(0, 0, 0, 2)); will-change: filter"
+            />
+          </div>
+          <p class="text-4xl mb-5 font-allura text-white">The Wedding Of</p>
+          <div class="mb-8">
+            <h1
+              id="bride-name-display"
+              class="font-cormorant text-5xl md:text-7xl text-white font-medium uppercase"
+              style="text-shadow: 0px 2px 14px #000000"
+            >
+              Valery
+            </h1>
+            <div class="flex items-center justify-center gap-4 my-4">
+              <h1 class="font-greatvibes text-4xl text-white" style="font-style: italic">and</h1>
+            </div>
+            <!-- float-animation -->
+            <h1
+              id="groom-name-display"
+              class="font-cormorant text-5xl md:text-7xl text-white font-medium mb-2 uppercase"
+              style="text-shadow: 0px 2px 14px #000000"
+            >
+              Fadli
+            </h1>
+          </div>
+          <div class="mb-8 w-full max-w-md mx-auto h-32 md:h-30 overflow-hidden relative">
+            <img
+              src="img/name-down.svg"
+              alt=""
+              class="w-full h-auto object-contain"
+              style="filter: drop-shadow(0 2px 1.5px rgba(0, 0, 0, 2)); will-change: filter"
+            />
+          </div>
+          <p id="firstScreenName">Kepada Yth.</p>
+          <h6 class="text-white mb-6">*Mohon maaf apabila ada kesalahan pengejaan</h6>
+          <button
+            id="open-invitation-btn"
+            class="relative px-10 py-4 bg-transparent rounded-full font-medium tracking-wider"
+          >
+            <span class="relative z-10 text-white">Buka Undangan</span>
+            <div class="absolute inset-0 rounded-full"></div>
+          </button>
+        </div>
+      </section>
+      <!-- Video Section -->
+      <section id="video-section" class="min-h-full relative hidden z-50">
+        <!-- Video Full Screen Container -->
+        <div class="absolute inset-0 w-full h-full bg-black">
+          <video id="opening-video" autoplay muted playsinline class="w-full h-full object-cover">
+            <source src="img/opening.mp4" type="video/mp4" />
+          </video>
+        </div>
+        <!-- Overlay Controls -->
+        <div class="absolute inset-0 z-10" style="background: transparent; cursor: default"></div>
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 pointer-events-none">
+          <div class="flex flex-col items-center gap-2">
+            <div
+              class="w-8 h-12 border-2 rounded-full flex items-start justify-center p-2"
+              style="border-color: #000000"
+            >
+              <div
+                class="w-1.5 h-3 bg-black-500 rounded-full animate-scroll-dot"
+                style="background-color: #000000"
+              ></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Main Invitation Content -->
+      <section id="main-content" class="w-full hidden relative">
+        <!-- Fixed Background Image for All Sections -->
+        <div class="fixed inset-0 w-full h-full z-0">
+          <img
+            src="img/bg.png"
+            alt="Wedding Background"
+            class="w-full h-full object-cover"
+            loading="lazy"
+            onerror="
+              console.error('Image failed to load:', this.src);
+              this.style.background =
+                'linear-gradient(135deg, #881337 0%, #9f1239 50%, #be123c 100%)';
+              this.alt = 'Background unavailable';
+            "
+          />
+          <div class="absolute inset-0 bg-white/40"></div>
+        </div>
+        <!-- Hero Section -->
+        <div class="min-h-full relative flex items-center justify-center overflow-hidden z-10">
+          <div class="relative z-10 text-center px-6 py-16 w-full max-w-4xl mx-auto">
+            <p class="text-black text-s drop-shadow-lg" style="font-family: Montserrat, sans-serif">
+              Atas Rahmat Tuhan Yang Maha Esa, kami bermaksud mengundang Bapak/Ibu di acara kami. <br />
+              Merupakan suatu kehormatan dan kebahagiaan bagi kami sekeluarga, apabila Bapak/Ibu/Saudara/i berkenan
+              hadir dan memberikan doa restu.
+            </p>
+          </div>
+        </div>
+        <!-- Groom and Bride -->
+        <div class="min-h-full relative flex items-center justify-center overflow-hidden z-10">
+          <div class="relative z-10 text-center px-6 py-10 w-full max-w-4xl mx-auto">
+            <div class="bg-white/50 backdrop-blur-md rounded-3xl p-8 md:p-12 border border-white/30 shadow-2xl">
+              <h1 class="text-black font-allura text-4xl">We are Getting Married!</h1>
+              <div class="my-10">
+                <img src="img/groom.svg" alt="Groom" class="drop-shadow-[0_8px_16px_rgba(0,0,0,0.25)] block mx-auto" />
+                <h2 id="groom-name-main" class="font-greatvibes text-4xl md:text-5xl text-black font-medium">Fadli</h2>
+                <p class="text-black-200/70 text-sm mt-1">Putra dari Bapak ... &amp; Ibu ...</p>
+                <div class="flex items-center justify-center gap-4 my-6">
+                  <div class="w-20 h-px bg-gradient-to-r from-transparent to-amber-400"></div>
+                  <div class="w-12 h-12 rounded-full border-2 border-amber-400 flex items-center justify-center">
+                    <span class="text-amber-300 text-2xl font-cormorant">&amp;</span>
+                  </div>
+                  <div class="w-20 h-px bg-gradient-to-l from-transparent to-amber-400"></div>
+                </div>
+                <img src="img/bride.svg" alt="Groom" class="drop-shadow-[0_8px_16px_rgba(0,0,0,0.25)] block mx-auto" />
+                <h2 id="bride-name-main" class="font-cormorant text-4xl md:text-5xl text-white font-medium">Valery</h2>
+                <p class="text-amber-200/70 text-sm mt-1">Putri dari Bapak ... &amp; Ibu ...</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Event Details -->
+        <div class="min-h-full relative py-16 z-10">
+          <div class="relative z-10 px-6 max-w-4xl mx-auto">
+            <div class="text-center mb-12">
+              <!-- Divider -->
+              <div class="section-divider w-24 mx-auto mt-4"></div>
+              <p class="text-amber-300 text-sm tracking-[0.2em] uppercase mb-2">Save The Date</p>
+              <h2 class="font-cormorant text-4xl md:text-5xl text-white">Waktu &amp; Tempat</h2>
+            </div>
+            <!-- Akad & Resepsi -->
+            <div class="grid md:grid-cols-2 gap-6 mb-12">
+              <!-- Akad -->
+              <div class="relative">
+                <!-- Crown Icon Overlay -->
+                <div
+                  class="absolute drop-shadow-[0_8px_16px_rgba(0,0,0,0.25)] -top-20 left-1/2 transform -translate-x-1/2 z-20 md:-top-32 w-42 h-42 md:w-64 md:h-64"
+                >
+                  <div class="bg-transparent flex items-center justify-center w-full h-full">
+                    <img src="img/crown.svg" alt="Star icon" class="w-full h-full object-contain" />
+                  </div>
+                </div>
+
+                <div
+                  class="bg-white/50 backdrop-blur-md rounded-3xl p-8 md:p-12 border border-white/30 text-center shadow-2xl pt-14"
+                >
+                  <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-red-400/30 flex items-center justify-center">
+                    <svg class="w-8 h-8 text-red-300" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.5"
+                        d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                      />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 class="font-cormorant text-2xl text-white mb-4">Akad Nikah</h3>
+                    <p id="akad-date" class="text-amber-200 font-medium mb-2">Sabtu, 15 Maret 2025</p>
+                    <p id="akad-time" class="text-white/80">09:00 - 10:00 WIB</p>
+                  </div>
+                </div>
+              </div>
+              <!-- Resepsi -->
+              <div class="bg-black/50 backdrop-blur-md rounded-2xl p-8 border border-white/30 text-center shadow-2xl">
+                <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-amber-400/30 flex items-center justify-center">
+                  <svg class="w-8 h-8 text-amber-300" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.5"
+                      d="M21 15.546c-.523 0-1.046.151-1.5.454a2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0A1.5 1.5 0 003 15.546V6a3 3 0 013-3h12a3 3 0 013 3v9.546z"
+                    />
+                  </svg>
+                </div>
+                <h3 class="font-cormorant text-2xl text-white mb-4">Resepsi</h3>
+                <p id="resepsi-date" class="text-amber-200 font-medium mb-2">Sabtu, 15 Maret 2025</p>
+                <p id="resepsi-time" class="text-white/80">11:00 - 14:00 WIB</p>
+              </div>
+            </div>
+            <!-- Location -->
+            <div
+              class="bg-black/50 backdrop-blur-md rounded-2xl p-8 border border-white/30 text-center mb-8 shadow-2xl"
+            >
+              <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-amber-400/30 flex items-center justify-center">
+                <svg class="w-8 h-8 text-amber-300" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.5"
+                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                  />
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.5"
+                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                  />
+                </svg>
+              </div>
+              <h3 id="venue-name-display" class="font-cormorant text-2xl text-white mb-2">Hotel Grand Ballroom</h3>
+              <p id="venue-address-display" class="text-white/70 mb-6">Jl. Contoh Alamat No. 123, Jakarta Selatan</p>
+              <button
+                id="maps-btn"
+                class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-amber-500 to-amber-400 text-rose-900 rounded-full font-semibold hover:from-amber-400 hover:to-amber-300 transition-all duration-300 shadow-lg hover:shadow-amber-400/30"
+              >
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"
+                  />
+                </svg>
+                Buka Maps
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- Gift Section -->
+        <div class="min-h-full relative py-16 z-10">
+          <div class="relative z-10 px-6 max-w-4xl mx-auto">
+            <div class="text-center mb-12">
+              <p class="text-amber-300 text-sm tracking-[0.2em] uppercase mb-2">Wedding Gift</p>
+              <h2 class="font-cormorant text-4xl md:text-5xl text-white">Kirim Hadiah</h2>
+              <div class="section-divider w-24 mx-auto mt-4"></div>
+              <p class="text-white/70 mt-4 max-w-md mx-auto text-sm">
+                Doa restu Anda merupakan karunia yang sangat berarti bagi kami. Namun jika Anda ingin memberikan tanda
+                kasih, kami menyediakan amplop digital.
+              </p>
+            </div>
+            <!-- Bank Account Card -->
+            <div
+              class="bg-black/50 backdrop-blur-md rounded-2xl p-8 border border-white/30 max-w-md mx-auto shadow-2xl"
+            >
+              <div class="flex items-center justify-center mb-6">
+                <div class="w-20 h-12 bg-white rounded-lg flex items-center justify-center">
+                  <span id="bank-name-display" class="text-slate-800 font-bold text-lg">BCA</span>
+                </div>
+              </div>
+              <div class="text-center">
+                <p class="text-white/70 text-sm mb-2">Nomor Rekening</p>
+                <p id="account-number-display" class="text-2xl text-white font-mono tracking-wider mb-2">1234567890</p>
+                <p class="text-amber-200">a.n. <span id="account-name-display">Ahmad Fatimah</span></p>
+              </div>
+              <button
+                id="copy-account-btn"
+                class="w-full mt-6 flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-amber-500 to-amber-400 text-rose-900 rounded-full font-semibold hover:from-amber-400 hover:to-amber-300 transition-all duration-300 shadow-lg hover:shadow-amber-400/30"
+              >
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"
+                  />
+                </svg>
+                Salin Nomor Rekening
+              </button>
+            </div>
+            <!-- Closing -->
+            <div class="text-center mt-16 pb-8">
+              <div class="section-divider w-32 mx-auto mb-8"></div>
+              <p class="text-white/80 text-lg mb-4">
+                Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk
+                memberikan doa restu.
+              </p>
+              <p class="text-amber-300 font-cormorant text-2xl italic mb-8">
+                Atas kehadiran dan doa restunya, kami ucapkan terima kasih.
+              </p>
+              <div class="flex items-center justify-center gap-2 text-white">
+                <span>Kami yang berbahagia,</span>
+              </div>
+              <p id="couple-names-footer" class="font-cormorant text-3xl text-amber-200 mt-2">Ahmad &amp; Fatimah</p>
+              <div class="mt-12 text-white/50 text-xs"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Toast Notification -->
+      <div
+        id="toast"
+        class="fixed bottom-6 left-1/2 transform -translate-x-1/2 px-6 py-3 bg-green-500 text-white rounded-full shadow-lg hidden z-50"
+      >
+        <div class="flex items-center gap-2">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+          </svg>
+          <span id="toast-message">Berhasil disalin!</span>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

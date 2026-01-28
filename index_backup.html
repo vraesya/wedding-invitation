@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Royal Wedding Invitation</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+<link
+  href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Cinzel:wght@500&family=Great+Vibes&display=swap"
+  rel="stylesheet"
+/>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="bg"></div>
+  <div class="bg-overlay"></div>
+  
+  <!-- OPEN SCREEN -->
+  <div class="open-screen" id="openScreen">
+    <div>
+        <p id="firstScreenName">Dear Guest,</p>
+        <h1>You are Invited</h1>
+        <h2>Valery & Fadli</h2>
+        <h2>Special Day</h2>
+        <button class="btn-open" onclick="openInvitation()">Open Invitation</button>
+    </div>
+  </div>
+
+  <!-- INVITATION -->
+
+  <div id="invitation">
+    <video class="fullscreen-video" autoplay muted playsinline>
+      <source src="img/opening.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <div class="bride-groom">
+    <div class="card-invite" style="background-color: white; opacity: 90%;">
+        <img src="img/crown.svg" alt="photo" class="card-crown">
+      <h2>PENGANTIN WANITA & PRIA</h2>
+      <div class="divider"></div>
+      <h5>We cordially invite you, our dear firends, family, and loved ones, to celebrate our wedding with us</h5>
+      <p class="names">
+        Valery
+      </p>
+      <img src="img/bride.svg">
+      <p>Valery Raesya<br>
+        Anak perempuan dari Bapak Irwansyah, S.H & Ibu Indra Rosmita</p>
+      <h1 class="names">&</h1>
+      <p class="names">
+        Fadli
+      </p>
+      <img src="img/groom.svg">
+      <p>Fadli Putra Sutrisno Nanico<br>
+        Anak laki-laki dari bapak H. Sutrisno & Ibu Hj. Reflinda, S.E</p>
+      <div class="quote">“And so the adventure begins — where love blooms and magic lives.”</div>
+    </div>
+  </div>
+
+  <div class="date-countdown">
+    <div class="card-invite" style="background-color: white; opacity: 90%;">
+        <h2>Menuju Hari Spesial</h2>
+        <div class="divider"></div>
+        <div id="countdown" class="countdown">
+            <div><span id="days">0</span><small>Days</small></div>
+            <div><span id="hours">0</span><small>Hours</small></div>
+            <div><span id="minutes">0</span><small>Minutes</small></div>
+            <div><span id="seconds">0</span><small>Seconds</small></div>
+        </div>
+        <button class="btn-open" onclick="openCalendar()">SAVE THE DATE</button>
+    </div>
+  </div>
+
+  <div class="card">
+      <img src="img/bg-card.svg" alt="">
+      <div class="overlay">
+        <h2>Judul</h2>
+        <p>Deskripsi singkat</p>
+        <button>Click me</button>
+      </div>
+    </div>
+  </div>
+<script src="script.js"></script>
+
+</body>
+</html>
