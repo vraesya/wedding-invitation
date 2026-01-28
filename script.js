@@ -222,33 +222,6 @@ function openInvitation() {
   video.play().catch(() => {});
 }
 
-// function startVideoAutoProgress() {
-//   // Auto-progress to main content after video duration (estimated 30 seconds)
-//   // User can also skip manually
-//   setTimeout(() => {
-//     showMainContent();
-//   }, 30000); // 30 seconds - adjust based on your actual video length
-// }
-
-// function showMainContent() {
-//   // const videoSection = document.getElementById("video-section");
-//   const mainContent = document.getElementById("main-content");
-
-//   videoSection.style.opacity = "0";
-//   videoSection.style.transition = "opacity 0.5s ease-out";
-
-//   setTimeout(() => {
-//     // videoSection.classList.add("hidden");
-//     mainContent.classList.remove("hidden");
-//     mainContent.style.opacity = "0";
-
-//     setTimeout(() => {
-//       mainContent.style.opacity = "1";
-//       mainContent.style.transition = "opacity 0.5s ease-in";
-//     }, 50);
-//   }, 500);
-// }
-
 function openMaps() {
   const config = window.elementSdk ? window.elementSdk.config : {};
   const mapsLink = config.maps_link || defaultConfig.maps_link;
