@@ -225,6 +225,8 @@ function openInvitation() {
   video.play().catch(() => {});
 
   music.play().catch(()=>{});
+  music.loop = true;
+  music.volume = 0.5;
 }
 
 function openMaps() {
