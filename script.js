@@ -203,6 +203,8 @@ function openInvitation() {
   const videoSection = document.getElementById("video-section");
   const mainContent = document.getElementById("main-content");
   const video = document.getElementById("opening-video");
+    // music
+  const music = document.getElementById("weddingMusic");
 
   // fade out cover
   coverPage.style.transition = "opacity 0.5s ease";
@@ -221,6 +223,8 @@ function openInvitation() {
 
   // play video (user gesture aman)
   video.play().catch(() => {});
+
+  music.play().catch(()=>{});
 }
 
 function openMaps() {
