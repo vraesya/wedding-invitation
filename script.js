@@ -2,6 +2,7 @@ const defaultConfig = {
   groom_name: "Fadli",
   bride_name: "Valery",
   event_date: "Jumat, 13 Februari 2026",
+  akad_time: "08:00 AM",
   event_time: "13:00 PM - Selesai",
   venue_name: "Rumah mempelai wanita",
   venue_address: "Perum. Griya Talago Permata, Blok B2 No.4, Aua Kuniang, Payakumbuh Selatan",
@@ -339,3 +340,30 @@ appContainer.addEventListener("scroll", revealOnScroll);
 setTimeout(() => {
   revealOnScroll();
 }, 100);
+
+// Wedding Countdown (13 February 2026)
+const weddingDate = new Date("2026-02-13T00:00:00").getTime();
+
+function updateCountdown() {
+  const now = new Date().getTime();
+  const diff = weddingDate - now;
+
+  if (diff <= 0) {
+    document.getElementById("countdown").innerHTML =
+      "<h3>🎉 Today is the Wedding Day! 🎉</h3>";
+    return;
+  }
+
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+  const minutes = Math.floor((diff / (1000 * 60)) % 60);
+  const seconds = Math.floor((diff / 1000) % 60);
+
+  document.getElementById("days").textContent = days;
+  document.getElementById("hours").textContent = hours;
+  document.getElementById("minutes").textContent = minutes;
+  document.getElementById("seconds").textContent = seconds;
+}
+
+setInterval(updateCountdown, 1000);
+updateCountdown();

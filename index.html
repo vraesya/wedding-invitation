@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id" class="h-full">
   <head>
     <meta charset="UTF-8" />
@@ -22,48 +22,70 @@
   <body class="h-full font-montserrat overflow-hidden">
     <div id="app-container" class="h-full w-full overflow-auto smooth-scroll">
       <!-- Cover Page -->
-      <section id="cover-page" class="min-h-full w-full relative flex items-center justify-center overflow-hidden">
+      <section
+        id="cover-page"
+        class="min-h-full w-full relative flex items-center justify-center overflow-hidden"
+      >
         <!-- Background with overlay -->
         <div id="cover-bg" class="absolute inset-0"></div>
         <div class="absolute inset-0 bg-black/60"></div>
         <!-- Content -->
         <div class="relative z-10 text-center px-6 py-12 fade-in">
-          <div class="w-full max-w-md mx-auto h-32 md:h-30 overflow-hidden relative">
+          <div
+            class="w-full max-w-md mx-auto h-32 md:h-30 overflow-hidden relative"
+          >
             <img
               src="img/name-up.svg"
               alt=""
               class="w-full h-auto object-contain"
-              style="filter: drop-shadow(0 2px 1.5px rgba(0, 0, 0, 2)); will-change: filter"
+              style="
+                filter: drop-shadow(0 2px 1.5px rgba(0, 0, 0, 2));
+                will-change: filter;
+              "
             />
           </div>
-          <p class="mb-5 font-allura text-white" style="font-size: 8vw;">The Wedding Of</p>
+          <p class="mb-5 font-allura text-white" style="font-size: 8vw">
+            The Wedding Of
+          </p>
           <div class="mb-8">
             <h1
               id="bride-name-display"
               class="font-cormorant text-white font-medium uppercase"
-              style="text-shadow: 0px 2px 14px #000000; font-size: 10vw;"
+              style="text-shadow: 0px 2px 14px #000000; font-size: 10vw"
             >
               Valery
             </h1>
-            <h1 class="font-allura text-white mt-2" style="font-size: 10vw; color: #f1dab8;">&amp;</h1>
+            <h1
+              class="font-allura text-white mt-2"
+              style="font-size: 10vw; color: #f1dab8"
+            >
+              &amp;
+            </h1>
             <h1
               id="groom-name-display"
               class="font-cormorant text-white font-medium mb-2 uppercase"
-              style="text-shadow: 0px 2px 14px #000000; font-size: 10vw;"
+              style="text-shadow: 0px 2px 14px #000000; font-size: 10vw"
             >
               Fadli
             </h1>
           </div>
-          <div class="mb-2 w-full max-w-md mx-auto h-32 md:h-30 overflow-hidden relative">
+          <div
+            class="mb-2 w-full max-w-md mx-auto h-32 md:h-30 overflow-hidden relative"
+          >
             <img
               src="img/name-down.svg"
               alt=""
               class="w-full h-auto object-contain"
-              style="filter: drop-shadow(0 2px 1.5px rgba(0, 0, 0, 2)); will-change: filter"
+              style="
+                filter: drop-shadow(0 2px 1.5px rgba(0, 0, 0, 2));
+                will-change: filter;
+              "
             />
           </div>
           <p id="firstScreenName">Kepada Yth.</p>
-          <p class="text-white mb-6" style="font-size: 3vw;">*) Mohon maaf apabila ada kesalahan pengejaan</p>
+          <p class="text-white mb-6" style="font-size: 3vw">
+            *) Mohon maaf apabila ada kesalahan pengejaan
+          </p>
           <button
             id="open-invitation-btn"
             class="relative px-10 py-4 bg-transparent rounded-full font-medium tracking-wider"
@@ -77,13 +99,24 @@
       <section id="video-section" class="min-h-full relative hidden z-50">
         <!-- Video Full Screen Container -->
         <div class="absolute inset-0 w-full h-full bg-black">
-          <video id="opening-video" autoplay muted playsinline class="w-full h-full object-cover">
+          <video
+            id="opening-video"
+            autoplay
+            muted
+            playsinline
+            class="w-full h-full object-cover"
+          >
             <source src="img/opening.mp4" type="video/mp4" />
           </video>
         </div>
         <!-- Overlay Controls -->
-        <div class="absolute inset-0 z-10" style="background: transparent; cursor: default"></div>
-        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 pointer-events-none">
+        <div
+          class="absolute inset-0 z-10"
+          style="background: transparent; cursor: default"
+        ></div>
+        <div
+          class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 pointer-events-none"
+        >
           <div class="flex flex-col items-center gap-2">
             <div
               class="w-8 h-12 border-2 rounded-full flex items-start justify-center p-2"
@@ -116,46 +149,183 @@
           <div class="absolute inset-0 bg-white/40"></div>
         </div>
         <!-- Hero Section -->
-        <div class="min-h-full relative flex items-center justify-center overflow-hidden z-10">
-          <div class="relative z-10 text-center px-6 py-16 w-full max-w-4xl mx-auto">
-            <p class="text-black text-s drop-shadow-lg" style="font-family: Montserrat, sans-serif">
-              Atas Rahmat Tuhan Yang Maha Esa, kami bermaksud mengundang Bapak/Ibu di acara kami. <br />
-              Merupakan suatu kehormatan dan kebahagiaan bagi kami sekeluarga, apabila Bapak/Ibu/Saudara/i berkenan
-              hadir dan memberikan doa restu.
-            </p>
-          </div>
+        <div
+          class="relative flex items-center justify-center overflow-hidden z-10 text-center px-4 py-9 mb-0"
+        >
+          <p
+            class="text-black text-s drop-shadow-lg"
+            style="font-family: Montserrat, sans-serif; font-size: 4vw"
+          >
+            Atas Rahmat Tuhan Yang Maha Esa, kami bermaksud mengundang Bapak/Ibu
+            di acara kami. <br />
+            Merupakan suatu kehormatan dan kebahagiaan bagi kami sekeluarga,
+            apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu.
+          </p>
         </div>
         <!-- Groom and Bride -->
-        <div class="min-h-full relative flex items-center justify-center overflow-hidden z-10">
-          <div class="relative z-10 text-center px-6 py-10 w-full max-w-4xl mx-auto">
-            <div class="bg-white/80 rounded-3xl p-8 md:p-12 border border-white/30 shadow-2xl">
-              <h1 class="text-black font-allura text-4xl">We are Getting Married!</h1>
+        <div
+          class="min-h-screen relative flex items-center justify-center overflow-hidden z-10 slide-up pt-[10px] pb-[42px]"
+        >
+          <div
+            class="relative z-10 text-center px-6 py-10 w-full max-w-4xl mx-auto"
+          >
+            <div
+              class="absolute left-1/2 -translate-x-1/2 -top-32 z-20 h-80 w-64"
+            >
+              <div
+                class="bg-transparent flex items-center justify-center w-full h-full"
+              >
+                <img
+                  src="img/crown.svg"
+                  alt="crown"
+                  class="w-full h-auto object-contain"
+                />
+              </div>
+            </div>
+            <div
+              class="bg-white/80 rounded-3xl p-8 md:p-12 border border-white/30 shadow-1xl"
+            >
+              <h1 class="text-black font-allura text-4xl">
+                We are Getting Married!
+              </h1>
               <div class="my-10">
-                <img src="img/bride.svg" alt="Groom" class="drop-shadow-[0_8px_16px_rgba(0,0,0,0.25)] block mx-auto" />
-                <h2 id="bride-name-main" class="font-greatvibes text-4xl md:text-5xl text-black font-medium">Valery Raesya, A.Md.Kom</h2>
-                <p class="text-black text-sm mt-1">Putri dari Bapak Irwansyah, S.H &amp; Ibu Indra Rosmita</p>
-                <div class="flex items-center justify-center gap-4 my-6">
-                  <div class="w-20 h-px bg-gradient-to-r from-transparent to-amber-400"></div>
-                  <div class="w-12 h-12 rounded-full border-2 border-amber-400 flex items-center justify-center">
-                    <span class="text-amber-300 text-2xl font-cormorant">&amp;</span>
+                <img
+                  src="img/bride.svg"
+                  alt="Groom"
+                  class="drop-shadow-[0_8px_16px_rgba(0,0,0,0.25)] block mx-auto"
+                />
+                <h1 class="font-greatvibes" style="font-size: 10vw">Valery</h1>
+                <p
+                  class="font-cormorant text-black font-medium"
+                  style="font-size: 4vw"
+                >
+                  Valery Raesya, A.Md.Kom
+                </p>
+                <p class="text-black text-sm mt-1">
+                  Putri bungsu dari Bapak Irwansyah, S.H &amp; Ibu Indra Rosmita
+                </p>
+                <div class="flex items-center justify-center mt-5">
+                  <div
+                    class="w-20 h-px bg-gradient-to-r from-transparent to-amber-400"
+                  ></div>
+                  <div
+                    class="w-12 h-12 rounded-full border-2 border-amber-400 flex items-center justify-center"
+                  >
+                    <span class="text-amber-300 text-2xl font-cormorant"
+                      >&amp;</span
+                    >
                   </div>
-                  <div class="w-20 h-px bg-gradient-to-l from-transparent to-amber-400"></div>
+                  <div
+                    class="w-20 h-px bg-gradient-to-l from-transparent to-amber-400"
+                  ></div>
                 </div>
-                <img src="img/groom.svg" alt="Groom" class="drop-shadow-[0_8px_16px_rgba(0,0,0,0.25)] block mx-auto" />
-                <h2 id="groom-name-main" class="font-greatvibes text-4xl md:text-5xl text-black font-medium">Fadli Putra Sutrisno Nanico, S.T</h2>
-                <p class="text-black-200/70 text-sm mt-1">Putra dari Bapak Hj.Sutrisno &amp; Ibu Hjh. Reflinda</p>
+                <img
+                  src="img/groom.svg"
+                  alt="Groom"
+                  class="drop-shadow-[0_8px_16px_rgba(0,0,0,0.25)] block mx-auto"
+                />
+                <h1
+                  class="font-greatvibes text-black font-medium"
+                  style="font-size: 10vw"
+                >
+                  Fadli
+                </h1>
+                <p
+                  class="font-cormorant text-black font-medium"
+                  style="font-size: 4vw"
+                >
+                  Fadli Putra Sutrisno Nanico, S.T
+                </p>
+                <p class="text-black-200/70 text-sm mt-1">
+                  Putra bungsu dari Bapak Hj.Sutrisno &amp; Ibu Hjh. Reflinda
+                </p>
+              </div>
+            </div>
+            <div
+              class="absolute -bottom-72 z-20 w-full h-full left-1/2 -translate-x-1/2"
+            >
+              <div
+                class="bg-transparent flex items-center justify-center w-full h-full"
+              >
+                <img
+                  src="img/flower-card.svg"
+                  alt="flower"
+                  class="w-full h-auto object-contain"
+                />
               </div>
             </div>
           </div>
         </div>
         <!-- Event Details -->
+        <div class="counting-days relative my-12 pt-10 pb-20 justify-center text-center">
+          <h1
+            class="text-white text-center py-4 font-cormorant text-[5vw] sm:text-[4vw] md:text-4xl tracking-widest"
+          >
+            HITUNG MUNDUR HARI
+          </h1>
+
+          <div
+            class="date-countdown flex justify-center flex-wrap gap-6 mt-6 text-white text-center font-cormorant"
+          >
+            <div
+              id="countdown"
+              class="flex flex-wrap justify-center gap-6 text-center"
+            >
+              <div class="count-classic">
+                <span
+                  id="days"
+                  class="text-4xl sm:text-5xl md:text-6xl font-bold"
+                  >0</span
+                >
+                <small class="block mt-1 text-sm sm:text-base md:text-lg"
+                  >Days</small
+                >
+              </div>
+              <div class="count-classic">
+                <span
+                  id="hours"
+                  class="text-4xl sm:text-5xl md:text-6xl font-bold"
+                  >0</span
+                >
+                <small class="block mt-1 text-sm sm:text-base md:text-lg"
+                  >Hours</small
+                >
+              </div>
+              <div class="count-classic">
+                <span
+                  id="minutes"
+                  class="text-4xl sm:text-5xl md:text-6xl font-bold"
+                  >0</span
+                >
+                <small class="block mt-1 text-sm sm:text-base md:text-lg"
+                  >Minutes</small
+                >
+              </div>
+              <div class="count-classic">
+                <span
+                  id="seconds"
+                  class="text-4xl sm:text-5xl md:text-6xl font-bold"
+                  >0</span
+                >
+                <small class="block mt-1 text-sm sm:text-base md:text-lg"
+                  >Seconds</small
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div class="min-h-full relative py-16 z-10">
           <div class="relative z-10 px-6 max-w-4xl mx-auto">
             <div class="text-center mb-12">
               <!-- Divider -->
               <div class="section-divider w-24 mx-auto mt-4"></div>
-              <p class="text-amber-300 text-sm tracking-[0.2em] uppercase mb-2">Save The Date</p>
-              <h2 class="font-cormorant text-4xl md:text-5xl text-white">Waktu &amp; Tempat</h2>
+              <p class="text-amber-300 text-sm tracking-[0.2em] uppercase mb-2">
+                Save The Date
+              </p>
+              <h2 class="font-cormorant text-4xl md:text-5xl text-white">
+                Waktu &amp; Tempat
+              </h2>
             </div>
             <!-- Akad & Resepsi -->
             <div class="grid md:grid-cols-2 gap-6 mb-12">
@@ -165,16 +335,29 @@
                 <div
                   class="absolute drop-shadow-[0_8px_16px_rgba(0,0,0,0.25)] -top-20 left-1/2 transform -translate-x-1/2 z-20 md:-top-32 w-42 h-42 md:w-64 md:h-64"
                 >
-                  <div class="bg-transparent flex items-center justify-center w-full h-full">
-                    <img src="img/crown.svg" alt="Star icon" class="w-full h-full object-contain" />
+                  <div
+                    class="bg-transparent flex items-center justify-center w-full h-full"
+                  >
+                    <img
+                      src="img/crown.svg"
+                      alt="Star icon"
+                      class="w-full h-full object-contain"
+                    />
                   </div>
                 </div>
 
                 <div
                   class="bg-white/50 backdrop-blur-md rounded-3xl p-8 md:p-12 border border-white/30 text-center shadow-2xl pt-14"
                 >
-                  <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-red-400/30 flex items-center justify-center">
-                    <svg class="w-8 h-8 text-red-300" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                  <div
+                    class="w-16 h-16 mx-auto mb-4 rounded-full bg-red-400/30 flex items-center justify-center"
+                  >
+                    <svg
+                      class="w-8 h-8 text-red-300"
+                      fill="none"
+                      stroke="currentColor"
+                      viewbox="0 0 24 24"
+                    >
                       <path
                         stroke-linecap="round"
                         stroke-linejoin="round"
@@ -184,16 +367,31 @@
                     </svg>
                   </div>
                   <div>
-                    <h3 class="font-cormorant text-2xl text-white mb-4">Akad Nikah</h3>
-                    <p id="akad-date" class="text-amber-200 font-medium mb-2">Sabtu, 15 Maret 2025</p>
-                    <p id="akad-time" class="text-white/80">09:00 - 10:00 WIB</p>
+                    <h3 class="font-cormorant text-2xl text-white mb-4">
+                      Akad Nikah
+                    </h3>
+                    <p id="akad-date" class="text-amber-200 font-medium mb-2">
+                      Sabtu, 15 Maret 2025
+                    </p>
+                    <p id="akad-time" class="text-white/80">
+                      09:00 - 10:00 WIB
+                    </p>
                   </div>
                 </div>
               </div>
               <!-- Resepsi -->
-              <div class="bg-black/50 backdrop-blur-md rounded-2xl p-8 border border-white/30 text-center shadow-2xl">
-                <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-amber-400/30 flex items-center justify-center">
-                  <svg class="w-8 h-8 text-amber-300" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+              <div
+                class="bg-black/50 backdrop-blur-md rounded-2xl p-8 border border-white/30 text-center shadow-2xl"
+              >
+                <div
+                  class="w-16 h-16 mx-auto mb-4 rounded-full bg-amber-400/30 flex items-center justify-center"
+                >
+                  <svg
+                    class="w-8 h-8 text-amber-300"
+                    fill="none"
+                    stroke="currentColor"
+                    viewbox="0 0 24 24"
+                  >
                     <path
                       stroke-linecap="round"
                       stroke-linejoin="round"
@@ -203,7 +401,9 @@
                   </svg>
                 </div>
                 <h3 class="font-cormorant text-2xl text-white mb-4">Resepsi</h3>
-                <p id="resepsi-date" class="text-amber-200 font-medium mb-2">Sabtu, 15 Maret 2025</p>
+                <p id="resepsi-date" class="text-amber-200 font-medium mb-2">
+                  Sabtu, 15 Maret 2025
+                </p>
                 <p id="resepsi-time" class="text-white/80">11:00 - 14:00 WIB</p>
               </div>
             </div>
@@ -211,8 +411,15 @@
             <div
               class="bg-black/50 backdrop-blur-md rounded-2xl p-8 border border-white/30 text-center mb-8 shadow-2xl"
             >
-              <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-amber-400/30 flex items-center justify-center">
-                <svg class="w-8 h-8 text-amber-300" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+              <div
+                class="w-16 h-16 mx-auto mb-4 rounded-full bg-amber-400/30 flex items-center justify-center"
+              >
+                <svg
+                  class="w-8 h-8 text-amber-300"
+                  fill="none"
+                  stroke="currentColor"
+                  viewbox="0 0 24 24"
+                >
                   <path
                     stroke-linecap="round"
                     stroke-linejoin="round"
@@ -227,13 +434,25 @@
                   />
                 </svg>
               </div>
-              <h3 id="venue-name-display" class="font-cormorant text-2xl text-white mb-2">Hotel Grand Ballroom</h3>
-              <p id="venue-address-display" class="text-white/70 mb-6">Jl. Contoh Alamat No. 123, Jakarta Selatan</p>
+              <h3
+                id="venue-name-display"
+                class="font-cormorant text-2xl text-white mb-2"
+              >
+                Hotel Grand Ballroom
+              </h3>
+              <p id="venue-address-display" class="text-white/70 mb-6">
+                Jl. Contoh Alamat No. 123, Jakarta Selatan
+              </p>
               <button
                 id="maps-btn"
                 class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-amber-500 to-amber-400 text-rose-900 rounded-full font-semibold hover:from-amber-400 hover:to-amber-300 transition-all duration-300 shadow-lg hover:shadow-amber-400/30"
               >
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                <svg
+                  class="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewbox="0 0 24 24"
+                >
                   <path
                     stroke-linecap="round"
                     stroke-linejoin="round"
@@ -250,12 +469,17 @@
         <div class="min-h-full relative py-16 z-10">
           <div class="relative z-10 px-6 max-w-4xl mx-auto">
             <div class="text-center mb-12">
-              <p class="text-amber-300 text-sm tracking-[0.2em] uppercase mb-2">Wedding Gift</p>
-              <h2 class="font-cormorant text-4xl md:text-5xl text-white">Kirim Hadiah</h2>
+              <p class="text-amber-300 text-sm tracking-[0.2em] uppercase mb-2">
+                Wedding Gift
+              </p>
+              <h2 class="font-cormorant text-4xl md:text-5xl text-white">
+                Kirim Hadiah
+              </h2>
               <div class="section-divider w-24 mx-auto mt-4"></div>
               <p class="text-white/70 mt-4 max-w-md mx-auto text-sm">
-                Doa restu Anda merupakan karunia yang sangat berarti bagi kami. Namun jika Anda ingin memberikan tanda
-                kasih, kami menyediakan amplop digital.
+                Doa restu Anda merupakan karunia yang sangat berarti bagi kami.
+                Namun jika Anda ingin memberikan tanda kasih, kami menyediakan
+                amplop digital.
               </p>
             </div>
             <!-- Bank Account Card -->
@@ -263,20 +487,38 @@
               class="bg-black/50 backdrop-blur-md rounded-2xl p-8 border border-white/30 max-w-md mx-auto shadow-2xl"
             >
               <div class="flex items-center justify-center mb-6">
-                <div class="w-20 h-12 bg-white rounded-lg flex items-center justify-center">
-                  <span id="bank-name-display" class="text-slate-800 font-bold text-lg">BCA</span>
+                <div
+                  class="w-20 h-12 bg-white rounded-lg flex items-center justify-center"
+                >
+                  <span
+                    id="bank-name-display"
+                    class="text-slate-800 font-bold text-lg"
+                    >BCA</span
+                  >
                 </div>
               </div>
               <div class="text-center">
                 <p class="text-white/70 text-sm mb-2">Nomor Rekening</p>
-                <p id="account-number-display" class="text-2xl text-white font-mono tracking-wider mb-2">1234567890</p>
-                <p class="text-amber-200">a.n. <span id="account-name-display">Ahmad Fatimah</span></p>
+                <p
+                  id="account-number-display"
+                  class="text-2xl text-white font-mono tracking-wider mb-2"
+                >
+                  1234567890
+                </p>
+                <p class="text-amber-200">
+                  a.n. <span id="account-name-display">Ahmad Fatimah</span>
+                </p>
               </div>
               <button
                 id="copy-account-btn"
                 class="w-full mt-6 flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-amber-500 to-amber-400 text-rose-900 rounded-full font-semibold hover:from-amber-400 hover:to-amber-300 transition-all duration-300 shadow-lg hover:shadow-amber-400/30"
               >
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                <svg
+                  class="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewbox="0 0 24 24"
+                >
                   <path
                     stroke-linecap="round"
                     stroke-linejoin="round"
@@ -291,8 +533,8 @@
             <div class="text-center mt-16 pb-8">
               <div class="section-divider w-32 mx-auto mb-8"></div>
               <p class="text-white/80 text-lg mb-4">
-                Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk
-                memberikan doa restu.
+                Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila
+                Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu.
               </p>
               <p class="text-amber-300 font-cormorant text-2xl italic mb-8">
                 Atas kehadiran dan doa restunya, kami ucapkan terima kasih.
@@ -300,7 +542,12 @@
               <div class="flex items-center justify-center gap-2 text-white">
                 <span>Kami yang berbahagia,</span>
               </div>
-              <p id="couple-names-footer" class="font-cormorant text-3xl text-amber-200 mt-2">Ahmad &amp; Fatimah</p>
+              <p
+                id="couple-names-footer"
+                class="font-cormorant text-3xl text-amber-200 mt-2"
+              >
+                Ahmad &amp; Fatimah
+              </p>
               <div class="mt-12 text-white/50 text-xs"></div>
             </div>
           </div>
@@ -312,8 +559,18 @@
         class="fixed bottom-6 left-1/2 transform -translate-x-1/2 px-6 py-3 bg-green-500 text-white rounded-full shadow-lg hidden z-50"
       >
         <div class="flex items-center gap-2">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+          <svg
+            class="w-5 h-5"
+            fill="none"
+            stroke="currentColor"
+            viewbox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M5 13l4 4L19 7"
+            />
           </svg>
           <span id="toast-message">Berhasil disalin!</span>
         </div>

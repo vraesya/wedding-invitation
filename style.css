@@ -37,6 +37,16 @@ body {
     url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0L30 60M0 30L60 30M15 15L45 45M45 15L15 45' stroke='%23ffffff' stroke-width='0.5' fill='none' opacity='0.1'/%3E%3C/svg%3E");
 }
 
+.counting-days{
+  background-color: #3f5548;
+}
+
+.date-countdown {
+    animation: reveal 2s ease forwards; 
+    margin-top: 120px;
+    opacity: 6;
+}
+
 .floral-corner {
   position: absolute;
   width: 150px;
