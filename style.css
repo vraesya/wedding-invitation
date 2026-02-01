@@ -43,7 +43,6 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  border: 2px solid white;
 }
 
 .card-bg-round {
@@ -53,7 +52,6 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  border: 2px solid white;
 }
 
 .card-bg-back {
@@ -64,7 +62,6 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  border: 2px solid white;
 }
 
 .card-shape {
@@ -77,6 +74,16 @@ body {
   border-radius:
     16px 16px 50% 50% /   /* horizontal */
     16px 16px 30% 30%;    /* vertical */
+    overflow: hidden;
+}
+
+.card-shape-back::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("img/bg.png") center / cover no-repeat;
+  transform: scaleY(-1);       /* kebalik vertikal */
+  z-index: -1;                 /* biar di belakang konten */
 }
 
 .overlay-pattern {

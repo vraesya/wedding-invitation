@@ -151,7 +151,7 @@ async function onConfigChange(config) {
       btn.style.background = `linear-gradient(to right, ${primaryColor}, #e0cc9f)`;
       btn.style.borderImage = `linear-gradient(to right, ${primaryColor}, #e0cc9f)`;
     } else if (btn.id === "maps-btn-satu" || btn.id === "copy-account-btn" || btn.id === "maps-btn-dua") {
-      btn.style.background = `linear-gradient(to right, ${primaryColor}, ${secondaryColor})`;
+      btn.style.background = `linear-gradient(to right, #e0cc9f, ${primaryColor})`;
     }
   });
 }
@@ -386,21 +386,18 @@ function mapToEditPanelValues(config) {
   ]);
 }
 
-const observer = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry, index) => {
-      if (entry.isIntersecting) {
-        setTimeout(() => {
-          entry.target.classList.add("show");
-        }, index * 250);
-        observer.unobserve(entry.target);
-      } else {
-        entry.target.classList.remove("show");
-      }
-    });
-  },
-  { threshold: 0.2 },
-);
+const revealElements = document.querySelectorAll('.card-reveal');
 
-const card = document.querySelectorAll(".card-reveal");
-card.forEach((el) => observer.observe(el));
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show');     // muncul saat masuk viewport
+    } else {
+      entry.target.classList.remove('show');  // reset saat keluar viewport
+    }
+  });
+}, {
+  threshold: 0.2 // trigger saat 20% elemen terlihat
+});
+
+revealElements.forEach(el => observer.observe(el));
