@@ -12,8 +12,17 @@
     />
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body class="h-full font-montserrat overflow-auto" id="cover-bg" style="background-attachment: fixed;">
-    <div id="app-container" class="h-full w-full smooth-scroll">
+  <body
+    class="h-full font-montserrat overflow-auto loading"
+    id="cover-bg"
+    style="background-attachment: fixed"
+  >
+    <!-- LOADING -->
+    <div id="loader">
+      <div class="spinner"></div>
+    </div>
+
+    <div id="app-container" class="h-full w-full smooth-scroll reveal">
       <!-- Cover Page -->
       <section
         id="cover-page"
@@ -155,101 +164,101 @@
           </p>
         </div>
         <!-- Groom and Bride -->
+        <div
+          class="min-h-screen relative flex items-center justify-center z-10 pt-[10px] pb-[42px] card-reveal"
+        >
           <div
-            class="min-h-screen relative flex items-center justify-center z-10 pt-[10px] pb-[42px] card-reveal"
+            class="relative z-10 text-center px-6 py-10 w-full max-w-4xl mx-auto"
           >
             <div
-              class="relative z-10 text-center px-6 py-10 w-full max-w-4xl mx-auto"
+              class="absolute left-1/2 -translate-x-1/2 -top-32 z-20 h-80 w-64"
             >
               <div
-                class="absolute left-1/2 -translate-x-1/2 -top-32 z-20 h-80 w-64"
+                class="bg-transparent flex items-center justify-center w-full h-full"
               >
-                <div
-                  class="bg-transparent flex items-center justify-center w-full h-full"
-                >
-                  <img
-                    src="img/crown.svg"
-                    alt="crown"
-                    class="w-full h-auto object-contain"
-                  />
-                </div>
+                <img
+                  src="img/crown.svg"
+                  alt="crown"
+                  class="w-full h-auto object-contain"
+                />
               </div>
-              <div
-                class="bg-white/80 rounded-3xl p-8 md:p-12 border border-white/30 shadow-1xl mb-15">
-                <h1 class="text-black font-allura text-4xl mt-5">
-                  We are Getting Married!
-                </h1>
-                <div class="mb-10">
-                  <img
-                    src="img/bride.svg"
-                    alt="Groom"
-                    class="drop-shadow-[0_8px_16px_rgba(0,0,0,0.25)] block mx-auto"
-                  />
-                  <h1 class="font-greatvibes" style="font-size: 10vw">Valery</h1>
-                  <p
-                    class="font-cormorant text-black font-medium"
-                    style="font-size: 4vw"
-                  >
-                    Valery Raesya, A.Md.Kom
-                  </p>
-                  <p class="text-black text-sm mt-1">
-                    Putri bungsu dari Bapak Irwansyah, S.H &amp; Ibu Indra Rosmita
-                  </p>
-                  <div class="flex items-center justify-center mt-5">
-                    <div
-                      class="w-20 h-px bg-gradient-to-r from-transparent to-amber-400"
-                    ></div>
-                    <div
-                      class="w-12 h-12 rounded-full border-2 border-amber-400 flex items-center justify-center"
-                    >
-                      <span class="text-amber-300 text-2xl font-cormorant"
-                        >&amp;</span
-                      >
-                    </div>
-                    <div
-                      class="w-20 h-px bg-gradient-to-l from-transparent to-amber-400"
-                    ></div>
-                  </div>
-                  <img
-                    src="img/groom.svg"
-                    alt="Groom"
-                    class="drop-shadow-[0_8px_16px_rgba(0,0,0,0.25)] block mx-auto"
-                  />
-                  <h1
-                    class="font-greatvibes text-black font-medium"
-                    style="font-size: 10vw"
-                  >
-                    Fadli
-                  </h1>
-                  <p
-                    class="font-cormorant text-black font-medium"
-                    style="font-size: 4vw"
-                  >
-                    Fadli Putra Sutrisno Nanico, S.T
-                  </p>
-                  <p class="text-black-200/70 text-sm mt-1">
-                    Putra bungsu dari Bapak H.Sutrisno &amp; Ibu Hj. Reflinda
-                  </p>
-                </div>
-              </div>
-              
             </div>
             <div
-                class="absolute bottom-0 z-20 w-full left-1/2 -translate-x-1/2"
-              >
-                <div
-                  class="bg-transparent flex items-center justify-center w-full h-full"
+              class="bg-white/80 rounded-3xl p-8 md:p-12 border border-white/30 shadow-1xl mb-15"
+            >
+              <h1 class="text-black font-allura text-4xl mt-5">
+                We are Getting Married!
+              </h1>
+              <div class="mb-10">
+                <img
+                  src="img/bride.svg"
+                  alt="Groom"
+                  class="drop-shadow-[0_8px_16px_rgba(0,0,0,0.25)] block mx-auto"
+                />
+                <h1 class="font-greatvibes" style="font-size: 10vw">Valery</h1>
+                <p
+                  class="font-cormorant text-black font-medium"
+                  style="font-size: 4vw"
                 >
-                  <img
-                    src="img/flower-card.svg"
-                    alt="flower"
-                    class="w-full h-auto object-contain"
-                  />
+                  Valery Raesya, A.Md.Kom
+                </p>
+                <p class="text-black text-sm mt-1">
+                  Putri bungsu dari Bapak Irwansyah, S.H &amp; Ibu Indra Rosmita
+                </p>
+                <div class="flex items-center justify-center mt-5">
+                  <div
+                    class="w-20 h-px bg-gradient-to-r from-transparent to-amber-400"
+                  ></div>
+                  <div
+                    class="w-12 h-12 rounded-full border-2 border-amber-400 flex items-center justify-center"
+                  >
+                    <span class="text-amber-300 text-2xl font-cormorant"
+                      >&amp;</span
+                    >
+                  </div>
+                  <div
+                    class="w-20 h-px bg-gradient-to-l from-transparent to-amber-400"
+                  ></div>
                 </div>
+                <img
+                  src="img/groom.svg"
+                  alt="Groom"
+                  class="drop-shadow-[0_8px_16px_rgba(0,0,0,0.25)] block mx-auto"
+                />
+                <h1
+                  class="font-greatvibes text-black font-medium"
+                  style="font-size: 10vw"
+                >
+                  Fadli
+                </h1>
+                <p
+                  class="font-cormorant text-black font-medium"
+                  style="font-size: 4vw"
+                >
+                  Fadli Putra Sutrisno Nanico, S.T
+                </p>
+                <p class="text-black-200/70 text-sm mt-1">
+                  Putra bungsu dari Bapak H.Sutrisno &amp; Ibu Hj. Reflinda
+                </p>
               </div>
+            </div>
           </div>
+          <div class="absolute bottom-0 z-20 w-full left-1/2 -translate-x-1/2">
+            <div
+              class="bg-transparent flex items-center justify-center w-full h-full"
+            >
+              <img
+                src="img/flower-card.svg"
+                alt="flower"
+                class="w-full h-auto object-contain"
+              />
+            </div>
+          </div>
+        </div>
         <!-- Count Down -->
-        <div class="counting-days relative my-12 pt-10 pb-20 justify-center text-center card-reveal">
+        <div
+          class="counting-days relative my-12 pt-10 pb-20 justify-center text-center card-reveal"
+        >
           <h1
             class="text-white text-center py-4 font-cormorant text-[5vw] sm:text-[4vw] md:text-4xl tracking-[0.2em]"
           >
@@ -313,7 +322,10 @@
             <div class="text-center mb-12">
               <!-- Divider -->
               <!-- <div class="section-divider w-24 mx-auto mt-4"></div> -->
-              <p class="text-black tracking-[0.2em] uppercase mb-2" style="font-size: 5vw;">
+              <p
+                class="text-black tracking-[0.2em] uppercase mb-2"
+                style="font-size: 5vw"
+              >
                 Save The Date
               </p>
             </div>
@@ -323,7 +335,7 @@
               <div class="relative">
                 <!-- Crown Icon Overlay -->
                 <div
-                  class="absolute drop-shadow-[0_8px_16px_rgba(0,0,0,0.25)] -top-24 left-1/2 transform -translate-x-1/2 z-20 md:-top-32 w-42 h-42 md:w-64 md:h-64"
+                  class="absolute drop-shadow-[0_8px_16px_rgba(0,0,0,0.25)] -top-20 left-1/2 transform -translate-x-1/2 z-20 md:-top-32 w-42 h-42 md:w-64 md:h-64"
                 >
                   <div
                     class="bg-transparent flex items-center justify-center w-full h-full"
@@ -337,18 +349,34 @@
                 </div>
 
                 <div
-                  class="bg-white/50 backdrop-blur-md rounded-3xl p-8 md:p-12 border border-white/30 text-center pt-12"
-                  style="box-shadow: inset 0 4px 10px rgba(0,0,0,0.2);"
+                  class="card-bg backdrop-blur-md rounded-3xl p-3 text-center"
+                  style="box-shadow: inset 0 4px 10px rgba(0, 0, 0, 0.2)"
                 >
-                  <div>
-                    <h3 class="font-cormorant text-black mb-4" style="font-size:8vw;">
+                  <div class="rounded-3xl bg-white backdrop-blur-md p-10" style="box-shadow: inset 0 10px 20px rgba(0, 0, 0, 0.2)">
+                    <h3
+                      class="font-cormorant text-black mb-4"
+                      style="font-size: 8vw"
+                    >
                       Akad
                     </h3>
-                    <img src="img/calendar.svg" alt="calendar" class="w-full text-center mt-0 mb-3" style="height: 12vw;">
-                    <p id="akad-date" class="text-black font-medium mb-2 font-cormorant" style="font-size: 5vw;">
+                    <img
+                      src="img/calendar.svg"
+                      alt="calendar"
+                      class="w-full text-center mt-0 mb-3"
+                      style="height: 12vw"
+                    />
+                    <p
+                      id="akad-date"
+                      class="text-black font-medium mb-2 font-cormorant"
+                      style="font-size: 5vw"
+                    >
                       Sabtu, 15 Maret 2025
                     </p>
-                    <p id="akad-time" class="text-black font-cormorant" style="font-size: 5vw;">
+                    <p
+                      id="akad-time"
+                      class="text-black font-cormorant"
+                      style="font-size: 5vw"
+                    >
                       09:00 - 10:00 WIB
                     </p>
                   </div>
@@ -356,30 +384,36 @@
               </div>
               <!-- Resepsi -->
               <div
-                class="bg-black/50 backdrop-blur-md rounded-2xl p-8 border border-white/30 text-center shadow-2xl"
+                class="rounded-3xl p-3 text-center card-bg"
               >
-                <div
-                  class="w-16 h-16 mx-auto mb-4 rounded-full bg-amber-400/30 flex items-center justify-center"
-                >
-                  <svg
-                    class="w-8 h-8 text-amber-300"
-                    fill="none"
-                    stroke="currentColor"
-                    viewbox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="1.5"
-                      d="M21 15.546c-.523 0-1.046.151-1.5.454a2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0A1.5 1.5 0 003 15.546V6a3 3 0 013-3h12a3 3 0 013 3v9.546z"
+                <div class="rounded-3xl bg-white backdrop-blur-md p-10" style="box-shadow: inset 0 10px 20px rgba(0, 0, 0, 0.2)">
+                    <h3
+                      class="font-cormorant text-black mb-4"
+                      style="font-size: 8vw"
+                    >
+                      Resepsi
+                    </h3>
+                    <img
+                      src="img/calendar.svg"
+                      alt="calendar"
+                      class="w-full text-center mt-0 mb-3"
+                      style="height: 12vw"
                     />
-                  </svg>
+                    <p
+                      id="resepsi-date"
+                      class="text-black font-medium mb-2 font-cormorant"
+                      style="font-size: 5vw"
+                    >
+                      Sabtu, 15 Maret 2025
+                    </p>
+                    <p
+                      id="resepsi-time"
+                      class="text-black font-cormorant"
+                      style="font-size: 5vw"
+                    >
+                      09:00 - 10:00 WIB
+                    </p>
                 </div>
-                <h3 class="font-cormorant text-2xl text-white mb-4">Resepsi</h3>
-                <p id="resepsi-date" class="text-amber-200 font-medium mb-2">
-                  Sabtu, 15 Maret 2025
-                </p>
-                <p id="resepsi-time" class="text-white/80">11:00 - 14:00 WIB</p>
               </div>
             </div>
             <!-- Location -->
@@ -550,8 +584,8 @@
           <span id="toast-message">Berhasil disalin!</span>
         </div>
       </div>
-       <!-- Audio -->
-        <audio id="weddingMusic" src="music/audio.mp3"></audio>
+      <!-- Audio -->
+      <audio id="weddingMusic" src="music/audio.mp3"></audio>
     </div>
     <script src="script.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>

@@ -5,7 +5,8 @@ const defaultConfig = {
   akad_time: "08:00 AM",
   event_time: "13:00 PM - Selesai",
   venue_name: "Rumah mempelai wanita",
-  venue_address: "Perum. Griya Talago Permata, Blok B2 No.4, Aua Kuniang, Payakumbuh Selatan",
+  venue_address:
+    "Perum. Griya Talago Permata, Blok B2 No.4, Aua Kuniang, Payakumbuh Selatan",
   maps_link: "https://maps.google.com",
   bank_name: "BNI",
   account_number: "1234567890",
@@ -32,6 +33,29 @@ if (window.elementSdk) {
   onConfigChange(defaultConfig);
 }
 
+// loader
+window.addEventListener("load", () => {
+  document.getElementById("loader").style.display = "none";
+  document.getElementById("app-container").style.visibility = "visible";
+  document.body.classList.remove("loading");
+  
+  const items = document.querySelectorAll(".reveal");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("active");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.2 },
+  );
+
+  items.forEach((el) => observer.observe(el));
+});
+
 async function onConfigChange(config) {
   const groomName = config.groom_name || defaultConfig.groom_name;
   const brideName = config.bride_name || defaultConfig.bride_name;
@@ -45,8 +69,10 @@ async function onConfigChange(config) {
   const bgColor = config.background_color || defaultConfig.background_color;
   const surfaceColor = config.surface_color || defaultConfig.surface_color;
   const textColor = config.text_color || defaultConfig.text_color;
-  const primaryColor = config.primary_action_color || defaultConfig.primary_action_color;
-  const secondaryColor = config.secondary_action_color || defaultConfig.secondary_action_color;
+  const primaryColor =
+    config.primary_action_color || defaultConfig.primary_action_color;
+  const secondaryColor =
+    config.secondary_action_color || defaultConfig.secondary_action_color;
 
   // Update text content
   const groomNameDisplay = document.getElementById("groom-name-display");
@@ -85,21 +111,27 @@ async function onConfigChange(config) {
   const bankNameDisplay = document.getElementById("bank-name-display");
   if (bankNameDisplay) bankNameDisplay.textContent = bankName;
 
-  const accountNumberDisplay = document.getElementById("account-number-display");
+  const accountNumberDisplay = document.getElementById(
+    "account-number-display",
+  );
   if (accountNumberDisplay) accountNumberDisplay.textContent = accountNumber;
 
   const accountNameDisplay = document.getElementById("account-name-display");
   if (accountNameDisplay) accountNameDisplay.textContent = accountName;
 
   const coupleNamesFooter = document.getElementById("couple-names-footer");
-  if (coupleNamesFooter) coupleNamesFooter.textContent = `${groomName} & ${brideName}`;
+  if (coupleNamesFooter)
+    coupleNamesFooter.textContent = `${groomName} & ${brideName}`;
 
   // Update colors
   document.documentElement.style.setProperty("--bg-color", bgColor);
   document.documentElement.style.setProperty("--surface-color", surfaceColor);
   document.documentElement.style.setProperty("--text-color", textColor);
   document.documentElement.style.setProperty("--primary-color", primaryColor);
-  document.documentElement.style.setProperty("--secondary-color", secondaryColor);
+  document.documentElement.style.setProperty(
+    "--secondary-color",
+    secondaryColor,
+  );
 
   // Apply background colors to sections
   const coverBg = document.getElementById("cover-bg");
@@ -133,9 +165,13 @@ function adjustColor(hex, percent) {
 }
 
 // Initialize event listeners
-document.getElementById("open-invitation-btn").addEventListener("click", openInvitation);
+document
+  .getElementById("open-invitation-btn")
+  .addEventListener("click", openInvitation);
 document.getElementById("maps-btn").addEventListener("click", openMaps);
-document.getElementById("copy-account-btn").addEventListener("click", copyAccountNumber);
+document
+  .getElementById("copy-account-btn")
+  .addEventListener("click", copyAccountNumber);
 
 function mapToCapabilities(config) {
   return {
@@ -144,35 +180,42 @@ function mapToCapabilities(config) {
         get: () => config.background_color || defaultConfig.background_color,
         set: (value) => {
           config.background_color = value;
-          if (window.elementSdk) window.elementSdk.setConfig({ background_color: value });
+          if (window.elementSdk)
+            window.elementSdk.setConfig({ background_color: value });
         },
       },
       {
         get: () => config.surface_color || defaultConfig.surface_color,
         set: (value) => {
           config.surface_color = value;
-          if (window.elementSdk) window.elementSdk.setConfig({ surface_color: value });
+          if (window.elementSdk)
+            window.elementSdk.setConfig({ surface_color: value });
         },
       },
       {
         get: () => config.text_color || defaultConfig.text_color,
         set: (value) => {
           config.text_color = value;
-          if (window.elementSdk) window.elementSdk.setConfig({ text_color: value });
+          if (window.elementSdk)
+            window.elementSdk.setConfig({ text_color: value });
         },
       },
       {
-        get: () => config.primary_action_color || defaultConfig.primary_action_color,
+        get: () =>
+          config.primary_action_color || defaultConfig.primary_action_color,
         set: (value) => {
           config.primary_action_color = value;
-          if (window.elementSdk) window.elementSdk.setConfig({ primary_action_color: value });
+          if (window.elementSdk)
+            window.elementSdk.setConfig({ primary_action_color: value });
         },
       },
       {
-        get: () => config.secondary_action_color || defaultConfig.secondary_action_color,
+        get: () =>
+          config.secondary_action_color || defaultConfig.secondary_action_color,
         set: (value) => {
           config.secondary_action_color = value;
-          if (window.elementSdk) window.elementSdk.setConfig({ secondary_action_color: value });
+          if (window.elementSdk)
+            window.elementSdk.setConfig({ secondary_action_color: value });
         },
       },
     ],
@@ -187,7 +230,7 @@ function openInvitation() {
   const videoSection = document.getElementById("video-section");
   const mainContent = document.getElementById("main-content");
   const video = document.getElementById("opening-video");
-    // music
+  // music
   const music = document.getElementById("weddingMusic");
 
   // fade out cover
@@ -201,14 +244,14 @@ function openInvitation() {
   videoSection.classList.remove("hidden");
   videoSection.style.display = "block";
   mainContent.style.display = "block";
-  
+
   // SCROLL KE VIDEO (INI PENTING!)
   videoSection.scrollIntoView({ behavior: "smooth" });
 
   // play video (user gesture aman)
   video.play().catch(() => {});
 
-  music.play().catch(()=>{});
+  music.play().catch(() => {});
   music.loop = true;
   music.volume = 0.5;
 }
@@ -234,12 +277,14 @@ function openInvitation() {
     a.style.border = "none";
     document.body.appendChild(a);
     if ("loading" !== document.readyState) c();
-    else if (window.addEventListener) document.addEventListener("DOMContentLoaded", c);
+    else if (window.addEventListener)
+      document.addEventListener("DOMContentLoaded", c);
     else {
       var e = document.onreadystatechange || function () {};
       document.onreadystatechange = function (b) {
         e(b);
-        "loading" !== document.readyState && ((document.onreadystatechange = e), c());
+        "loading" !== document.readyState &&
+          ((document.onreadystatechange = e), c());
       };
     }
   }
@@ -290,7 +335,6 @@ function showToast(message) {
   }, 3000);
 }
 
-
 function openMaps() {
   const config = window.elementSdk ? window.elementSdk.config : {};
   const mapsLink = config.maps_link || defaultConfig.maps_link;
@@ -333,18 +377,21 @@ function mapToEditPanelValues(config) {
   ]);
 }
 
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry, index) => {
-    if (entry.isIntersecting) {
-      setTimeout(() => {
-        entry.target.classList.add("show");
-      }, index * 250)
-      observer.unobserve(entry.target);
-    }else{
-      entry.target.classList.remove("show");
-    }
-  });
-}, { threshold: 0.2 });
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry, index) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add("show");
+        }, index * 250);
+        observer.unobserve(entry.target);
+      } else {
+        entry.target.classList.remove("show");
+      }
+    });
+  },
+  { threshold: 0.2 },
+);
 
 const card = document.querySelectorAll(".card-reveal");
 card.forEach((el) => observer.observe(el));

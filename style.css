@@ -2,6 +2,11 @@ body {
   box-sizing: border-box;
 }
 
+html,
+body {
+  overscroll-behavior: none;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -31,20 +36,38 @@ body {
   margin-bottom: 1px;
 }
 
+.card-bg {
+  background: url("img/card-flower.png");
+  width: 100%;
+  min-height: 250px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
 .overlay-pattern {
-  background-image: radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+  background-image:
+    radial-gradient(
+      circle at 20% 80%,
+      rgba(255, 255, 255, 0.1) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(255, 255, 255, 0.1) 0%,
+      transparent 50%
+    ),
     url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0L30 60M0 30L60 30M15 15L45 45M45 15L15 45' stroke='%23ffffff' stroke-width='0.5' fill='none' opacity='0.1'/%3E%3C/svg%3E");
 }
 
-.counting-days{
+.counting-days {
   background-color: #3f5548;
 }
 
 .date-countdown {
-    animation: reveal 2s ease forwards; 
-    margin-top: 120px;
-    opacity: 6;
+  animation: reveal 2s ease forwards;
+  margin-top: 120px;
+  opacity: 6;
 }
 
 .floral-corner {
@@ -107,8 +130,6 @@ body {
   animation: float 3s ease-in-out infinite;
 }
 
-
-
 @keyframes scroll-dot {
   0% {
     transform: translateY(0);
@@ -125,7 +146,11 @@ body {
 }
 
 .video-overlay {
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.3) 0%,
+    rgba(0, 0, 0, 0.7) 100%
+  );
 }
 
 .golden-border {
@@ -144,7 +169,9 @@ body {
 }
 
 .toast-notification {
-  animation: slideInUp 0.3s ease-out, fadeOut 0.3s ease-in 2.7s forwards;
+  animation:
+    slideInUp 0.3s ease-out,
+    fadeOut 0.3s ease-in 2.7s forwards;
 }
 
 @keyframes slideInUp {
@@ -183,44 +210,97 @@ body {
   navigation: auto;
 }
 
-.textShow{
+.textShow {
   animation: text-appear both;
   animation-timeline: view();
-  animation-range: entry 20% cover 100vh ;
+  animation-range: entry 20% cover 100vh;
 }
 
 @keyframes text-appear {
-  from{
+  from {
     opacity: 0;
     transform: translateY(100px);
   }
-  to{
+  to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-.fadeUp{
+.fadeUp {
   animation: fadeUp both;
   animation-timeline: view();
 }
 @keyframes fadeUp {
-  from{
+  from {
     opacity: 0;
     transform: translateY(40px) scale(0.5);
   }
-  to{
+  to {
     opacity: 1;
     transform: translateY(0) scale(1);
   }
 }
 
-.card-reveal{
+.card-reveal {
   opacity: 0;
   transform: translateY(40px) scale(0.95);
-  transition: all 0.8s ease-out;}
+  transition: all 0.8s ease-out;
+}
 
-.card-reveal.show{
+.card-reveal.show {
   opacity: 1;
   transform: translateY(0) scale(1);
+}
+
+/* KUNCI HALAMAN */
+body.loading {
+  overflow: hidden;
+}
+
+/* LOADER */
+#loader {
+  position: fixed;
+  inset: 0;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+/* spinner */
+.spinner {
+  width: 48px;
+  height: 48px;
+  border: 4px solid #ddd;
+  border-top: 4px solid #333;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* CONTENT DISEMBUNYIKAN TOTAL */
+#app-container {
+  visibility: hidden;
+}
+
+/* CARD ANIMASI */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition:
+    transform 0.8s ease,
+    opacity 0.8s ease;
+  will-change: transform, opacity;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
 }
