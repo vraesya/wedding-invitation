@@ -6,8 +6,9 @@ const defaultConfig = {
   event_time: "13:00 PM - Selesai",
   venue_name: "Rumah mempelai wanita",
   venue_address:
-    "Perum. Griya Talago Permata, Blok B2 No.4, Aua Kuniang, Payakumbuh Selatan",
-  maps_link: "https://maps.google.com",
+    "Perum. Griya Talago Permata, Blok B4, Aua Kuniang, Payakumbuh Selatan",
+  maps_link_satu: "https://maps.app.goo.gl/kc4eRTdjDdwkJRPg7",
+  maps_link_dua: "https://maps.app.goo.gl/Nvb71SvFhm66wNaYA",
   bank_name: "BNI",
   account_number: "1234567890",
   account_name: "Valery Raesya",
@@ -149,7 +150,7 @@ async function onConfigChange(config) {
     if (btn.id === "open-invitation-btn") {
       btn.style.background = `linear-gradient(to right, ${primaryColor}, #e0cc9f)`;
       btn.style.borderImage = `linear-gradient(to right, ${primaryColor}, #e0cc9f)`;
-    } else if (btn.id === "maps-btn" || btn.id === "copy-account-btn") {
+    } else if (btn.id === "maps-btn-satu" || btn.id === "copy-account-btn" || btn.id === "maps-btn-dua") {
       btn.style.background = `linear-gradient(to right, ${primaryColor}, ${secondaryColor})`;
     }
   });
@@ -168,7 +169,8 @@ function adjustColor(hex, percent) {
 document
   .getElementById("open-invitation-btn")
   .addEventListener("click", openInvitation);
-document.getElementById("maps-btn").addEventListener("click", openMaps);
+document.getElementById("maps-btn-satu").addEventListener("click", openMapSatu);
+document.getElementById("maps-btn-dua").addEventListener("click", openMapsDua);
 document
   .getElementById("copy-account-btn")
   .addEventListener("click", copyAccountNumber);
@@ -335,10 +337,16 @@ function showToast(message) {
   }, 3000);
 }
 
-function openMaps() {
+function openMapSatu() {
   const config = window.elementSdk ? window.elementSdk.config : {};
-  const mapsLink = config.maps_link || defaultConfig.maps_link;
-  window.open(mapsLink, "_blank", "noopener,noreferrer");
+  const mapsLinkSatu = config.maps_link_satu || defaultConfig.maps_link_satu;
+  window.open(mapsLinkSatu, "_blank", "noopener,noreferrer");
+}
+
+function openMapsDua() {
+  const config = window.elementSdk ? window.elementSdk.config : {};
+  const mapsLinkDua = config.maps_link_dua || defaultConfig.maps_link_dua;
+  window.open(mapsLinkDua, "_blank", "noopener,noreferrer");
 }
 
 function copyAccountNumber() {
@@ -370,7 +378,8 @@ function mapToEditPanelValues(config) {
     ["event_time", config.event_time || defaultConfig.event_time],
     ["venue_name", config.venue_name || defaultConfig.venue_name],
     ["venue_address", config.venue_address || defaultConfig.venue_address],
-    ["maps_link", config.maps_link || defaultConfig.maps_link],
+    ["maps_link_satu", config.maps_link_satu || defaultConfig.maps_link_satu],
+    ["maps_link_dua", config.maps_link_dua || defaultConfig.maps_link_dua],
     ["bank_name", config.bank_name || defaultConfig.bank_name],
     ["account_number", config.account_number || defaultConfig.account_number],
     ["account_name", config.account_name || defaultConfig.account_name],
