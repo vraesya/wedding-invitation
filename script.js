@@ -15,7 +15,7 @@ const defaultConfig = {
   surface_color: "#ffffff",
   text_color: "#ffffff",
   primary_action_color: "#d3aa5b",
-  secondary_action_color: "#75a782",
+  secondary_action_color: "#a88034",
 };
 
 let currentSection = "cover";

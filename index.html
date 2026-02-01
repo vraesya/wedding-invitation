@@ -352,7 +352,10 @@
                   class="card-bg backdrop-blur-md rounded-3xl p-3 text-center"
                   style="box-shadow: inset 0 4px 10px rgba(0, 0, 0, 0.2)"
                 >
-                  <div class="rounded-3xl bg-white backdrop-blur-md p-10" style="box-shadow: inset 0 10px 20px rgba(0, 0, 0, 0.2)">
+                  <div
+                    class="rounded-3xl bg-white backdrop-blur-md p-10"
+                    style="box-shadow: inset 0 10px 20px rgba(0, 0, 0, 0.2)"
+                  >
                     <h3
                       class="font-cormorant text-black mb-4"
                       style="font-size: 8vw"
@@ -382,37 +385,136 @@
                   </div>
                 </div>
               </div>
-              <!-- Resepsi -->
-              <div
-                class="rounded-3xl p-3 text-center card-bg"
-              >
-                <div class="rounded-3xl bg-white backdrop-blur-md p-10" style="box-shadow: inset 0 10px 20px rgba(0, 0, 0, 0.2)">
-                    <h3
-                      class="font-cormorant text-black mb-4"
-                      style="font-size: 8vw"
+              <!-- Resepsi Pertama-->
+              <div class="card-shape p-3 mt-8 text-center card-bg-round">
+                <div
+                  class="card-shape bg-white p-10"
+                  style="box-shadow: inset 0 10px 20px rgba(0, 0, 0, 0.2)"
+                >
+                  <h3
+                    class="font-cormorant text-black mb-4 mt-4"
+                    style="font-size: 8vw"
+                  >
+                    Resepsi Pertama
+                  </h3>
+                  <img
+                    src="img/calendar.svg"
+                    alt="calendar"
+                    class="w-full text-center mt-0 mb-3"
+                    style="height: 12vw"
+                  />
+                  <p
+                    id="resepsi-date"
+                    class="text-black font-medium mb-2 font-cormorant"
+                    style="font-size: 5vw"
+                  >
+                    Sabtu, 15 Maret 2025
+                  </p>
+                  <p
+                    id="resepsi-time"
+                    class="text-black font-cormorant"
+                    style="font-size: 5vw"
+                  >
+                    09:00 - 10:00 WIB
+                  </p>
+                  <img
+                    src="img/point.svg"
+                    alt="calendar"
+                    class="w-full text-center mt-3 mb-3"
+                    style="height: 12vw"
+                  />
+                  <h3
+                    id="venue-name-display"
+                    class="font-cormorant text-2xl text-black mb-2"
+                  >
+                  </h3>
+                  <p id="venue-address-display" class="text-black mb-6 font-cormorant ">
+                  </p>
+                  <button
+                    id="maps-btn"
+                    class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-white to-black text-white rounded-full font-semibold shadow-lg"
+                  >
+                    <svg
+                      class="w-5 h-5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewbox="0 0 24 24"
                     >
-                      Resepsi
-                    </h3>
-                    <img
-                      src="img/calendar.svg"
-                      alt="calendar"
-                      class="w-full text-center mt-0 mb-3"
-                      style="height: 12vw"
-                    />
-                    <p
-                      id="resepsi-date"
-                      class="text-black font-medium mb-2 font-cormorant"
-                      style="font-size: 5vw"
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"
+                      />
+                    </svg>
+                    Buka Maps
+                  </button>
+                </div>
+              </div>
+              <!-- Resepsi Kedua-->
+              <div class="card-shape-back p-3 mt-0 text-center card-bg-round">
+                <div
+                  class="card-shape-back bg-white p-10"
+                  style="box-shadow: inset 0 10px 20px rgba(0, 0, 0, 0.2)"
+                >
+                  <h3
+                    class="font-cormorant text-black mb-4 mt-4"
+                    style="font-size: 8vw"
+                  >
+                    Resepsi Kedua
+                  </h3>
+                  <img
+                    src="img/calendar.svg"
+                    alt="calendar"
+                    class="w-full text-center mt-0 mb-3"
+                    style="height: 12vw"
+                  />
+                  <p
+                    id="resepsi-date"
+                    class="text-black font-medium mb-2 font-cormorant"
+                    style="font-size: 5vw"
+                  >
+                    Sabtu, 15 Maret 2025
+                  </p>
+                  <p
+                    id="resepsi-time"
+                    class="text-black font-cormorant"
+                    style="font-size: 5vw"
+                  >
+                    09:00 - 10:00 WIB
+                  </p>
+                  <img
+                    src="img/point.svg"
+                    alt="calendar"
+                    class="w-full text-center mt-3 mb-3"
+                    style="height: 12vw"
+                  />
+                  <h3
+                    id="venue-name-display"
+                    class="font-cormorant text-2xl text-black mb-2"
+                  >
+                  </h3>
+                  <p id="venue-address-display" class="text-black mb-6 font-cormorant ">
+                  </p>
+                  <button
+                    id="maps-btn"
+                    class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-white to-black text-white rounded-full font-semibold shadow-lg"
+                  >
+                    <svg
+                      class="w-5 h-5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewbox="0 0 24 24"
                     >
-                      Sabtu, 15 Maret 2025
-                    </p>
-                    <p
-                      id="resepsi-time"
-                      class="text-black font-cormorant"
-                      style="font-size: 5vw"
-                    >
-                      09:00 - 10:00 WIB
-                    </p>
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"
+                      />
+                    </svg>
+                    Buka Maps
+                  </button>
                 </div>
               </div>
             </div>
@@ -443,34 +545,6 @@
                   />
                 </svg>
               </div>
-              <h3
-                id="venue-name-display"
-                class="font-cormorant text-2xl text-white mb-2"
-              >
-                Hotel Grand Ballroom
-              </h3>
-              <p id="venue-address-display" class="text-white/70 mb-6">
-                Jl. Contoh Alamat No. 123, Jakarta Selatan
-              </p>
-              <button
-                id="maps-btn"
-                class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-amber-500 to-amber-400 text-rose-900 rounded-full font-semibold hover:from-amber-400 hover:to-amber-300 transition-all duration-300 shadow-lg hover:shadow-amber-400/30"
-              >
-                <svg
-                  class="w-5 h-5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewbox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"
-                  />
-                </svg>
-                Buka Maps
-              </button>
             </div>
           </div>
         </div>

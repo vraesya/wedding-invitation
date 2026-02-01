@@ -43,6 +43,40 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  border: 2px solid white;
+}
+
+.card-bg-round {
+  background: url("img/bg.png");
+  width: 100%;
+  min-height: 250px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border: 2px solid white;
+}
+
+.card-bg-back {
+  background: url("img/bg.png");
+  width: 100%;
+  min-height: 250px;
+  transform: scaleY(-1);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border: 2px solid white;
+}
+
+.card-shape {
+  border-radius: 
+    50% 50% 16px 16px /   /* horizontal */
+    25% 25% 16px 16px;   /* vertical */
+}
+
+.card-shape-back {
+  border-radius:
+    16px 16px 50% 50% /   /* horizontal */
+    16px 16px 30% 30%;    /* vertical */
 }
 
 .overlay-pattern {
