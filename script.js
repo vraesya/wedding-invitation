@@ -20,6 +20,18 @@ const defaultConfig = {
 let currentSection = "cover";
 let countdownInterval = null;
 
+// Initialize SDK
+if (window.elementSdk) {
+  window.elementSdk.init({
+    defaultConfig,
+    onConfigChange,
+    mapToCapabilities,
+    mapToEditPanelValues,
+  });
+} else {
+  onConfigChange(defaultConfig);
+}
+
 async function onConfigChange(config) {
   const groomName = config.groom_name || defaultConfig.groom_name;
   const brideName = config.bride_name || defaultConfig.bride_name;
@@ -170,34 +182,6 @@ function mapToCapabilities(config) {
   };
 }
 
-function mapToEditPanelValues(config) {
-  return new Map([
-    ["groom_name", config.groom_name || defaultConfig.groom_name],
-    ["bride_name", config.bride_name || defaultConfig.bride_name],
-    ["event_date", config.event_date || defaultConfig.event_date],
-    ["event_time", config.event_time || defaultConfig.event_time],
-    ["venue_name", config.venue_name || defaultConfig.venue_name],
-    ["venue_address", config.venue_address || defaultConfig.venue_address],
-    ["maps_link", config.maps_link || defaultConfig.maps_link],
-    ["bank_name", config.bank_name || defaultConfig.bank_name],
-    ["account_number", config.account_number || defaultConfig.account_number],
-    ["account_name", config.account_name || defaultConfig.account_name],
-  ]);
-}
-
-function showToast(message) {
-  const toast = document.getElementById("toast");
-  const toastMessage = document.getElementById("toast-message");
-  toastMessage.textContent = message;
-  toast.classList.remove("hidden");
-  toast.classList.add("toast-notification");
-
-  setTimeout(() => {
-    toast.classList.add("hidden");
-    toast.classList.remove("toast-notification");
-  }, 3000);
-}
-
 function openInvitation() {
   const coverPage = document.getElementById("cover-page");
   const videoSection = document.getElementById("video-section");
@@ -211,13 +195,13 @@ function openInvitation() {
   coverPage.style.opacity = "0";
   // benar-benar hilangkan cover
   coverPage.style.display = "none";
-  coverPage.classList.add = "hidden";
+  coverPage.classList.add("hidden");
 
   // pastikan section lain tampil
-  videoSection.classList.remove = "hidden";
+  videoSection.classList.remove("hidden");
   videoSection.style.display = "block";
   mainContent.style.display = "block";
-
+  
   // SCROLL KE VIDEO (INI PENTING!)
   videoSection.scrollIntoView({ behavior: "smooth" });
 
@@ -227,45 +211,6 @@ function openInvitation() {
   music.play().catch(()=>{});
   music.loop = true;
   music.volume = 0.5;
-}
-
-function openMaps() {
-  const config = window.elementSdk ? window.elementSdk.config : {};
-  const mapsLink = config.maps_link || defaultConfig.maps_link;
-  window.open(mapsLink, "_blank", "noopener,noreferrer");
-}
-
-function copyAccountNumber() {
-  const config = window.elementSdk ? window.elementSdk.config : {};
-  const accountNumber = config.account_number || defaultConfig.account_number;
-
-  navigator.clipboard
-    .writeText(accountNumber)
-    .then(() => {
-      showToast("Nomor rekening berhasil disalin!");
-    })
-    .catch(() => {
-      // Fallback for older browsers
-      const textArea = document.createElement("textarea");
-      textArea.value = accountNumber;
-      document.body.appendChild(textArea);
-      textArea.select();
-      document.execCommand("copy");
-      document.body.removeChild(textArea);
-      showToast("Nomor rekening berhasil disalin!");
-    });
-}
-
-// Initialize SDK
-if (window.elementSdk) {
-  window.elementSdk.init({
-    defaultConfig,
-    onConfigChange,
-    mapToCapabilities,
-    mapToEditPanelValues,
-  });
-} else {
-  onConfigChange(defaultConfig);
 }
 
 (function () {
@@ -305,48 +250,6 @@ function getQueryParam(param) {
   return params.get(param);
 }
 
-// Insert invitee name
-window.addEventListener("DOMContentLoaded", () => {
-  const name = getQueryParam("name");
-  const firstScreen = document.getElementById("firstScreenName");
-  if (name) {
-    const formattedName = decodeURIComponent(name)
-      .split(" ")
-      .map((w) => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase())
-      .join(" ");
-    firstScreen.textContent = `Kepada Yth. ${formattedName},`;
-  }
-
-  // Always reset to first screen
-  document.getElementById("openScreen").style.display = "flex";
-  document.getElementById("invitation").style.display = "none";
-});
-
-// Scroll reveal animation
-function revealOnScroll() {
-  const reveals = document.querySelectorAll(".scroll-reveal, .scroll-reveal-scale");
-
-  reveals.forEach((element) => {
-    const elementTop = element.getBoundingClientRect().top;
-    const elementBottom = element.getBoundingClientRect().bottom;
-    const windowHeight = window.innerHeight;
-
-    // Trigger when element is 80% visible in viewport
-    if (elementTop < windowHeight * 0.8 && elementBottom > 0) {
-      element.classList.add("revealed");
-    }
-  });
-}
-
-// Scroll event listener for reveal animations
-const appContainer = document.getElementById("app-container");
-appContainer.addEventListener("scroll", revealOnScroll);
-
-// Trigger reveal on page load for elements already in view
-setTimeout(() => {
-  revealOnScroll();
-}, 100);
-
 // Wedding Countdown (13 February 2026)
 const weddingDate = new Date("2026-02-13T00:00:00").getTime();
 
@@ -373,3 +276,75 @@ function updateCountdown() {
 
 setInterval(updateCountdown, 1000);
 updateCountdown();
+
+function showToast(message) {
+  const toast = document.getElementById("toast");
+  const toastMessage = document.getElementById("toast-message");
+  toastMessage.textContent = message;
+  toast.classList.remove("hidden");
+  toast.classList.add("toast-notification");
+
+  setTimeout(() => {
+    toast.classList.add("hidden");
+    toast.classList.remove("toast-notification");
+  }, 3000);
+}
+
+
+function openMaps() {
+  const config = window.elementSdk ? window.elementSdk.config : {};
+  const mapsLink = config.maps_link || defaultConfig.maps_link;
+  window.open(mapsLink, "_blank", "noopener,noreferrer");
+}
+
+function copyAccountNumber() {
+  const config = window.elementSdk ? window.elementSdk.config : {};
+  const accountNumber = config.account_number || defaultConfig.account_number;
+
+  navigator.clipboard
+    .writeText(accountNumber)
+    .then(() => {
+      showToast("Nomor rekening berhasil disalin!");
+    })
+    .catch(() => {
+      // Fallback for older browsers
+      const textArea = document.createElement("textarea");
+      textArea.value = accountNumber;
+      document.body.appendChild(textArea);
+      textArea.select();
+      document.execCommand("copy");
+      document.body.removeChild(textArea);
+      showToast("Nomor rekening berhasil disalin!");
+    });
+}
+
+function mapToEditPanelValues(config) {
+  return new Map([
+    ["groom_name", config.groom_name || defaultConfig.groom_name],
+    ["bride_name", config.bride_name || defaultConfig.bride_name],
+    ["event_date", config.event_date || defaultConfig.event_date],
+    ["event_time", config.event_time || defaultConfig.event_time],
+    ["venue_name", config.venue_name || defaultConfig.venue_name],
+    ["venue_address", config.venue_address || defaultConfig.venue_address],
+    ["maps_link", config.maps_link || defaultConfig.maps_link],
+    ["bank_name", config.bank_name || defaultConfig.bank_name],
+    ["account_number", config.account_number || defaultConfig.account_number],
+    ["account_name", config.account_name || defaultConfig.account_name],
+  ]);
+}
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, index) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => {
+        entry.target.classList.add("show");
+      }, index * 250)
+      observer.unobserve(entry.target);
+    }else{
+      entry.target.classList.remove("show");
+    }
+  });
+}, { threshold: 0.2 });
+
+const card = document.querySelectorAll(".card-reveal");
+card.forEach((el) => observer.observe(el));

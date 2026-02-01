@@ -4,23 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Wedding Invitation</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="/_sdk/element_sdk.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&amp;family=Montserrat:wght@300;400;500;600&amp;display=swap"
+      href="https://fonts.googleapis.com/css2?family=Allura&family=Great+Vibes&family=Cormorant+Garamond&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
       rel="stylesheet"
     />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Allura&family=Great+Vibes&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
-      rel="stylesheet"
-    />
-    <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body class="h-full font-montserrat overflow-hidden">
-    <div id="app-container" class="h-full w-full overflow-auto smooth-scroll">
+  <body class="h-full font-montserrat overflow-auto">
+    <div id="app-container" class="h-full w-full smooth-scroll">
       <!-- Cover Page -->
       <section
         id="cover-page"
@@ -150,7 +143,7 @@
         </div>
         <!-- Hero Section -->
         <div
-          class="relative flex items-center justify-center overflow-hidden z-10 text-center px-4 py-9 mb-0"
+          class="relative flex items-center justify-center z-10 text-center px-4 py-9 mb-0 textShow"
         >
           <p
             class="text-black text-s drop-shadow-lg"
@@ -164,7 +157,7 @@
         </div>
         <!-- Groom and Bride -->
           <div
-            class="min-h-screen relative flex items-center justify-center overflow-hidden z-10 slide-up pt-[10px] pb-[42px]"
+            class="min-h-screen relative flex items-center justify-center z-10 pt-[10px] pb-[42px] card-reveal"
           >
             <div
               class="relative z-10 text-center px-6 py-10 w-full max-w-4xl mx-auto"
@@ -183,8 +176,7 @@
                 </div>
               </div>
               <div
-                class="bg-white/80 rounded-3xl p-8 md:p-12 border border-white/30 shadow-1xl mb-15"
-              >
+                class="bg-white/80 rounded-3xl p-8 md:p-12 border border-white/30 shadow-1xl mb-15">
                 <h1 class="text-black font-allura text-4xl mt-5">
                   We are Getting Married!
                 </h1>
@@ -258,7 +250,7 @@
               </div>
           </div>
         <!-- Event Details -->
-        <div class="counting-days relative my-12 pt-10 pb-20 justify-center text-center">
+        <div class="counting-days relative my-12 pt-10 pb-20 justify-center text-center card-reveal">
           <h1
             class="text-white text-center py-4 font-cormorant text-[5vw] sm:text-[4vw] md:text-4xl tracking-[0.2em]"
           >
@@ -580,5 +572,6 @@
         <audio id="weddingMusic" src="music/audio.mp3"></audio>
     </div>
     <script src="script.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
   </body>
 </html>
