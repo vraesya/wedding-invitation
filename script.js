@@ -9,8 +9,10 @@ const defaultConfig = {
     "Perum. Griya Talago Permata, Blok B4, Aua Kuniang, Payakumbuh Selatan",
   maps_link_satu: "https://maps.app.goo.gl/kc4eRTdjDdwkJRPg7",
   maps_link_dua: "https://maps.app.goo.gl/Nvb71SvFhm66wNaYA",
-  bank_name: "BNI",
+  bank_name_valery: "BNI",
   account_number: "1234567890",
+  bank_name_fadli: "BNI",
+  account_number_fadli: "",
   account_name: "Valery Raesya",
   background_color: "#b7dcff",
   surface_color: "#ffffff",
@@ -62,10 +64,13 @@ async function onConfigChange(config) {
   const brideName = config.bride_name || defaultConfig.bride_name;
   const eventDate = config.event_date || defaultConfig.event_date;
   const eventTime = config.event_time || defaultConfig.event_time;
+  const akadTime = config.akad_time || defaultConfig.akad_time; 
   const venueName = config.venue_name || defaultConfig.venue_name;
   const venueAddress = config.venue_address || defaultConfig.venue_address;
-  const bankName = config.bank_name || defaultConfig.bank_name;
-  const accountNumber = config.account_number || defaultConfig.account_number;
+  const bankNameValery = config.bank_name_valery || defaultConfig.bank_name_valery;
+  const bankNameFadli = config.bank_name_fadli || defaultConfig.bank_name_fadli;
+  const accountNumberValery = config.account_number_valery || defaultConfig.account_number_valery;
+  const accountNumberFadli = config.account_number_fadli || defaultConfig.account_number_fadli;
   const accountName = config.account_name || defaultConfig.account_name;
   const bgColor = config.background_color || defaultConfig.background_color;
   const surfaceColor = config.surface_color || defaultConfig.surface_color;
@@ -94,8 +99,8 @@ async function onConfigChange(config) {
   const akadDate = document.getElementById("akad-date");
   if (akadDate) akadDate.textContent = eventDate;
 
-  const akadTime = document.getElementById("akad-time");
-  if (akadTime) akadTime.textContent = eventTime.split("-")[0] || eventTime;
+  const akadTimeContent = document.getElementById("akad-time");
+  if (akadTimeContent) akadTimeContent.textContent = akadTime;
 
   const resepsiDate = document.getElementById("resepsi-date");
   if (resepsiDate) resepsiDate.textContent = eventDate;
@@ -110,12 +115,20 @@ async function onConfigChange(config) {
   if (venueAddressDisplay) venueAddressDisplay.textContent = venueAddress;
 
   const bankNameDisplay = document.getElementById("bank-name-display");
-  if (bankNameDisplay) bankNameDisplay.textContent = bankName;
+  if (bankNameDisplay) bankNameDisplay.textContent = bankNameValery;
 
   const accountNumberDisplay = document.getElementById(
-    "account-number-display",
+    "account-number-display-valery",
   );
-  if (accountNumberDisplay) accountNumberDisplay.textContent = accountNumber;
+  if (accountNumberDisplay) accountNumberDisplay.textContent = accountNumberValery;
+
+  const bankNameDisplayFadli = document.getElementById("bank-name-display-fadli");
+  if (bankNameDisplayFadli) bankNameDisplayFadli.textContent = bankNameFadli;
+
+  const accountNumberDisplayFadli = document.getElementById(
+    "account-number-display-fadli",
+  );
+  if (accountNumberDisplayFadli) accountNumberDisplayFadli.textContent = accountNumberFadli;
 
   const accountNameDisplay = document.getElementById("account-name-display");
   if (accountNameDisplay) accountNameDisplay.textContent = accountName;
@@ -142,6 +155,7 @@ async function onConfigChange(config) {
     coverBg.style.backgroundSize = "cover";
     coverBg.style.backgroundPosition = "center";
     coverBg.style.backgroundRepeat = "no-repeat";
+    coverBg.style.minHeight = "10010%";
   }
 
   // Update button colors
@@ -174,7 +188,6 @@ document.getElementById("maps-btn-dua").addEventListener("click", openMapsDua);
 document
   .getElementById("copy-account-btn")
   .addEventListener("click", copyAccountNumber);
-
 function mapToCapabilities(config) {
   return {
     recolorables: [
@@ -232,20 +245,19 @@ function openInvitation() {
   const videoSection = document.getElementById("video-section");
   const mainContent = document.getElementById("main-content");
   const video = document.getElementById("opening-video");
-  // music
   const music = document.getElementById("weddingMusic");
-
-  // fade out cover
-  coverPage.style.transition = "opacity 0.5s ease";
-  coverPage.style.opacity = "0";
-  // benar-benar hilangkan cover
-  coverPage.style.display = "none";
-  coverPage.classList.add("hidden");
 
   // pastikan section lain tampil
   videoSection.classList.remove("hidden");
   videoSection.style.display = "block";
   mainContent.style.display = "block";
+
+  // fade out cover
+  coverPage.style.transition = "opacity 0.5s ease";
+  coverPage.style.opacity = "0";
+
+  // tunggu animasi selesai
+    coverPage.style.display = "none";
 
   // SCROLL KE VIDEO (INI PENTING!)
   videoSection.scrollIntoView({ behavior: "smooth" });
@@ -392,12 +404,23 @@ const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add('show');     // muncul saat masuk viewport
-    } else {
-      entry.target.classList.remove('show');  // reset saat keluar viewport
-    }
+    } 
   });
 }, {
   threshold: 0.2 // trigger saat 20% elemen terlihat
 });
-
 revealElements.forEach(el => observer.observe(el));
+
+
+// Insert invitee name
+window.addEventListener("DOMContentLoaded", () => {
+  const name = getQueryParam("name");
+  const firstScreen = document.getElementById("firstScreenName");
+  if(name){
+    const formattedName = decodeURIComponent(name).split(" ").map(
+      w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()
+    ).join(" ");
+    firstScreen.textContent = `Kepada Yth. ${formattedName},`;
+  }
+});
+

@@ -5,12 +5,47 @@ body {
 html,
 body {
   overscroll-behavior: none;
+  height: 100%;
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+/* wrapper full screen */
+.wrapper {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* kiri = scroll */
+.left {
+  width: 65%;
+  height: 100vh;
+  position: sticky;
+}
+
+/* kanan = fixed, gak ikut scroll */
+.right {
+  width: 35%;
+  height: 100vh;
+  margin-left: auto;
+  overflow-y: auto;
+  position: sticky;
+}
+
+.bg-fixed {
+  position: fixed;
+  inset: 0;
+  background: url("img/bg.png") center / cover no-repeat;
+  z-index: 0; /* di belakang semua konten */
+}
+
+.left,
+.right {
+  min-height: 100vh;
 }
 
 .font-cormorant {
@@ -30,10 +65,38 @@ body {
 }
 
 #firstScreenName {
-  font-size: 4vw;
+  font-size: clamp(12px, 4vw, 20px);
   font-family: "Montserrat", sans-serif;
   color: #ffffff;
   margin-bottom: 1px;
+}
+
+.size-text{
+  font-size: clamp(12px, 4vw, 18px)
+}
+
+.size-text-sm{
+  font-size: clamp(8px, 2vw, 12px)
+}
+
+.size-name-cover{
+  font-size: clamp(42px, 10vw, 64px)
+}
+
+.size-name-m{
+  font-size: clamp(24px, 6vw, 32px)
+}
+
+.size-name-xm{
+  font-size: clamp(32px, 8vw, 48px)
+}
+
+.size-name-sb{
+  font-size: clamp(36px, 10vw, 48px)
+}
+
+.size-name-b{
+  font-size: clamp(42px, 12vw, 64px)
 }
 
 .card-bg {
@@ -47,7 +110,7 @@ body {
 
 .card-bg-round {
   background: url("img/bg.png");
-  width: 100%;
+  min-width:80%;
   min-height: 250px;
   background-repeat: no-repeat;
   background-position: center;
@@ -56,7 +119,7 @@ body {
 
 .card-bg-back {
   background: url("img/bg.png");
-  width: 100%;
+  width: 80%;
   min-height: 250px;
   transform: scaleY(-1);
   background-repeat: no-repeat;
@@ -294,6 +357,7 @@ body {
   transform: translateY(0) scale(1);
 }
 
+
 /* KUNCI HALAMAN */
 body.loading {
   overflow: hidden;
@@ -344,4 +408,23 @@ body.loading {
 .reveal.active {
   opacity: 1;
   transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .wrapper {
+    display: flex;
+    overflow: visible;
+    min-height: 100vh;
+  }
+
+  .left {
+    display: none;
+  }
+
+  .right {
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    overflow: visible;
+  }
 }
