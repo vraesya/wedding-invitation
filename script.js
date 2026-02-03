@@ -404,10 +404,12 @@ const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add('show');     // muncul saat masuk viewport
-    } 
+    }else{
+      entry.target.classList.remove('show');  // hilang saat keluar viewport
+    }
   });
 }, {
-  threshold: 0.2 // trigger saat 20% elemen terlihat
+  threshold: 0.1 // trigger saat 20% elemen terlihat
 });
 revealElements.forEach(el => observer.observe(el));
 
