@@ -4,7 +4,7 @@ const defaultConfig = {
   event_date: "Jumat, 13 Februari 2026",
   akad_time: "08:00 AM",
   event_time: "13:00 PM - Selesai",
-  venue_name: "Rumah mempelai wanita",
+  venue_name: "Kediaman mempelai wanita",
   venue_address:
     "Perum. Griya Talago Permata, Blok B4, Aua Kuniang, Payakumbuh Selatan",
   maps_link_satu: "https://maps.app.goo.gl/kc4eRTdjDdwkJRPg7",
@@ -43,6 +43,7 @@ window.addEventListener("load", () => {
   document.body.classList.remove("loading");
   
   const items = document.querySelectorAll(".reveal");
+  const cards = document.querySelectorAll(".story-card");
 
   const observer = new IntersectionObserver(
     (entries) => {
@@ -56,6 +57,7 @@ window.addEventListener("load", () => {
     { threshold: 0.2 },
   );
 
+  cards.forEach(card => observer.observe(card));
   items.forEach((el) => observer.observe(el));
 });
 
@@ -425,4 +427,5 @@ window.addEventListener("DOMContentLoaded", () => {
     firstScreen.textContent = `Kepada Yth. ${formattedName},`;
   }
 });
+
 
