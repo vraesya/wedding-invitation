@@ -100,7 +100,7 @@ body {
 }
 
 .card-bg {
-  background: url("img/card-flower.png");
+  background: url("img/card-flower.svg");
   width: 100%;
   min-height: 250px;
   background-repeat: no-repeat;
@@ -521,3 +521,32 @@ body.loading {
   }
 }
 
+.cardExpand {
+  width: 300px;
+  background: #1e1e1e;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0,255,255,0.2);
+}
+
+.content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+
+.card.active .content {
+  max-height: 200px; /* atur sesuai isi */
+}
+
+.toggle-btn {
+  margin-top: 15px;
+  padding: 10px;
+  width: 100%;
+  border: none;
+  border-radius: 8px;
+  background: #00ffff;
+  color: #000;
+  cursor: pointer;
+  font-weight: bold;
+}

@@ -2,18 +2,15 @@ const defaultConfig = {
   groom_name: "Fadli",
   bride_name: "Valery",
   event_date: "Jumat, 13 Februari 2026",
-  akad_time: "08:00 AM",
+  akad_time: "08:00 AM - Selesai",
   event_time: "13:00 PM - Selesai",
   venue_name: "Kediaman mempelai wanita",
   venue_address:
     "Perum. Griya Talago Permata, Blok B4, Aua Kuniang, Payakumbuh Selatan",
   maps_link_satu: "https://maps.app.goo.gl/kc4eRTdjDdwkJRPg7",
   maps_link_dua: "https://maps.app.goo.gl/Nvb71SvFhm66wNaYA",
-  bank_name_valery: "BNI",
-  account_number: "1234567890",
-  bank_name_fadli: "BNI",
-  account_number_fadli: "",
-  account_name: "Valery Raesya",
+  account_number_fadli: "1208962614",
+  account_number_valery: "025601081587505",
   background_color: "#b7dcff",
   surface_color: "#ffffff",
   text_color: "#ffffff",
@@ -425,6 +422,19 @@ window.addEventListener("DOMContentLoaded", () => {
       w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()
     ).join(" ");
     firstScreen.textContent = `Kepada Yth. ${formattedName},`;
+  }
+});
+
+const button = document.querySelector(".toggle-btn");
+const card = document.querySelector(".cardExpand");
+
+button.addEventListener("click", () => {
+  card.classList.toggle("active");
+
+  if (card.classList.contains("active")) {
+    button.textContent = "Tutup";
+  } else {
+    button.textContent = "Lihat Selengkapnya";
   }
 });
 
