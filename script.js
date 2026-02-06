@@ -38,7 +38,7 @@ window.addEventListener("load", () => {
   document.getElementById("loader").style.display = "none";
   document.getElementById("app-container").style.visibility = "visible";
   document.body.classList.remove("loading");
-  
+
   const items = document.querySelectorAll(".reveal");
   const cards = document.querySelectorAll(".story-card");
 
@@ -54,7 +54,7 @@ window.addEventListener("load", () => {
     { threshold: 0.2 },
   );
 
-  cards.forEach(card => observer.observe(card));
+  cards.forEach((card) => observer.observe(card));
   items.forEach((el) => observer.observe(el));
 });
 
@@ -63,7 +63,7 @@ async function onConfigChange(config) {
   const brideName = config.bride_name || defaultConfig.bride_name;
   const eventDate = config.event_date || defaultConfig.event_date;
   const eventTime = config.event_time || defaultConfig.event_time;
-  const akadTime = config.akad_time || defaultConfig.akad_time; 
+  const akadTime = config.akad_time || defaultConfig.akad_time;
   const venueName = config.venue_name || defaultConfig.venue_name;
   const venueAddress = config.venue_address || defaultConfig.venue_address;
   const bgColor = config.background_color || defaultConfig.background_color;
@@ -139,7 +139,13 @@ async function onConfigChange(config) {
     if (btn.id === "open-invitation-btn") {
       btn.style.background = `linear-gradient(to right, ${primaryColor}, #e0cc9f)`;
       btn.style.borderImage = `linear-gradient(to right, ${primaryColor}, #e0cc9f)`;
-    } else if (btn.id === "maps-btn-satu" || btn.id === "copy-account-btn-valery" || btn.id === "maps-btn-dua" || btn.id === "copy-account-btn-fadli" || btn.id === "expandGift") {
+    } else if (
+      btn.id === "maps-btn-satu" ||
+      btn.id === "copy-account-btn-valery" ||
+      btn.id === "maps-btn-dua" ||
+      btn.id === "copy-account-btn-fadli" ||
+      btn.id === "expandGift"
+    ) {
       btn.style.background = `linear-gradient(to right, #e0cc9f, ${primaryColor})`;
     }
   });
@@ -166,6 +172,7 @@ document
 document
   .getElementById("copy-account-btn-fadli")
   .addEventListener("click", copyAccountNumberFadli);
+document.getElementById("expandGift").addEventListener("click", openGiftCard);
 
 function mapToCapabilities(config) {
   return {
@@ -236,7 +243,7 @@ function openInvitation() {
   coverPage.style.opacity = "0";
 
   // tunggu animasi selesai
-    coverPage.style.display = "none";
+  coverPage.style.display = "none";
 
   // SCROLL KE VIDEO (INI PENTING!)
   videoSection.scrollIntoView({ behavior: "smooth" });
@@ -255,7 +262,7 @@ function openInvitation() {
     if (b) {
       var d = b.createElement("script");
       d.innerHTML =
-        "window.__CF$cv$params={r:'9c1ff1b7257da8fa',t:'MTc2OTA5NDI3MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";
+        "window.__CF$cv$params={r:'9c1ff1b7257da8fa',t:'MTc2OTA5NDI3MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';";
       b.getElementsByTagName("head")[0].appendChild(d);
     }
   }
@@ -340,9 +347,47 @@ function openMapsDua() {
   window.open(mapsLinkDua, "_blank", "noopener,noreferrer");
 }
 
+let isOpen = false;
+function openGiftCard() {
+  const bankSection = document.getElementById("bank");
+  const expandBtn = document.getElementById("expandGift");
+  isOpen = !isOpen;
+  if (isOpen) {
+    bankSection.style.display = "block";
+    const height = bankSection.scrollHeight;
+
+    bankSection.style.height = "0px";
+    bankSection.style.transition =
+      "height 500ms ease-in-out, opacity 400ms ease-in-out, transform 400ms ease-in-out";
+
+    requestAnimationFrame(() => {
+      bankSection.style.height = height + "px";
+      bankSection.style.opacity = "1";
+      bankSection.style.transform = "translateY(0)";
+    });
+
+    expandBtn.textContent = "Sembunyikan Rekening";
+  } else {
+    const height = bankSection.scrollHeight;
+
+    bankSection.style.height = height + "px";
+
+    requestAnimationFrame(() => {
+      bankSection.style.transition =
+        "height 500ms ease-in-out, opacity 300ms ease-in-out, transform 300ms ease-in-out";
+      bankSection.style.height = "0px";
+      bankSection.style.opacity = "0";
+      bankSection.style.transform = "translateY(8px)";
+    });
+
+    expandBtn.textContent = "Tampilkan Rekening";
+  }
+}
+
 function copyAccountNumberValery() {
   const config = window.elementSdk ? window.elementSdk.config : {};
-  const accountNumber = config.account_number_valery || defaultConfig.account_number_valery;
+  const accountNumber =
+    config.account_number_valery || defaultConfig.account_number_valery;
 
   navigator.clipboard
     .writeText(accountNumber)
@@ -363,7 +408,8 @@ function copyAccountNumberValery() {
 
 function copyAccountNumberFadli() {
   const config = window.elementSdk ? window.elementSdk.config : {};
-  const accountNumber = config.account_number_fadli || defaultConfig.account_number_fadli;
+  const accountNumber =
+    config.account_number_fadli || defaultConfig.account_number_fadli;
 
   navigator.clipboard
     .writeText(accountNumber)
@@ -398,45 +444,33 @@ function mapToEditPanelValues(config) {
   ]);
 }
 
-const revealElements = document.querySelectorAll('.card-reveal');
+const revealElements = document.querySelectorAll(".card-reveal");
 
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('show');     // muncul saat masuk viewport
-    }else{
-      entry.target.classList.remove('show');  // hilang saat keluar viewport
-    }
-  });
-}, {
-  threshold: 0.1 // trigger saat 20% elemen terlihat
-});
-revealElements.forEach(el => observer.observe(el));
-
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show"); // muncul saat masuk viewport
+      } else {
+        entry.target.classList.remove("show"); // hilang saat keluar viewport
+      }
+    });
+  },
+  {
+    threshold: 0.1, // trigger saat 20% elemen terlihat
+  },
+);
+revealElements.forEach((el) => observer.observe(el));
 
 // Insert invitee name
 window.addEventListener("DOMContentLoaded", () => {
   const name = getQueryParam("name");
   const firstScreen = document.getElementById("firstScreenName");
-  if(name){
-    const formattedName = decodeURIComponent(name).split(" ").map(
-      w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()
-    ).join(" ");
+  if (name) {
+    const formattedName = decodeURIComponent(name)
+      .split(" ")
+      .map((w) => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase())
+      .join(" ");
     firstScreen.textContent = `Kepada Yth. ${formattedName},`;
   }
 });
-
-const button = document.querySelector(".toggle-btn");
-const card = document.querySelector(".cardExpand");
-
-button.addEventListener("click", () => {
-  card.classList.toggle("active");
-
-  if (card.classList.contains("active")) {
-    button.textContent = "Tutup";
-  } else {
-    button.textContent = "Lihat Selengkapnya";
-  }
-});
-
-
