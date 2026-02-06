@@ -66,11 +66,6 @@ async function onConfigChange(config) {
   const akadTime = config.akad_time || defaultConfig.akad_time; 
   const venueName = config.venue_name || defaultConfig.venue_name;
   const venueAddress = config.venue_address || defaultConfig.venue_address;
-  const bankNameValery = config.bank_name_valery || defaultConfig.bank_name_valery;
-  const bankNameFadli = config.bank_name_fadli || defaultConfig.bank_name_fadli;
-  const accountNumberValery = config.account_number_valery || defaultConfig.account_number_valery;
-  const accountNumberFadli = config.account_number_fadli || defaultConfig.account_number_fadli;
-  const accountName = config.account_name || defaultConfig.account_name;
   const bgColor = config.background_color || defaultConfig.background_color;
   const surfaceColor = config.surface_color || defaultConfig.surface_color;
   const textColor = config.text_color || defaultConfig.text_color;
@@ -113,25 +108,6 @@ async function onConfigChange(config) {
   const venueAddressDisplay = document.getElementById("venue-address-display");
   if (venueAddressDisplay) venueAddressDisplay.textContent = venueAddress;
 
-  const bankNameDisplay = document.getElementById("bank-name-display");
-  if (bankNameDisplay) bankNameDisplay.textContent = bankNameValery;
-
-  const accountNumberDisplay = document.getElementById(
-    "account-number-display-valery",
-  );
-  if (accountNumberDisplay) accountNumberDisplay.textContent = accountNumberValery;
-
-  const bankNameDisplayFadli = document.getElementById("bank-name-display-fadli");
-  if (bankNameDisplayFadli) bankNameDisplayFadli.textContent = bankNameFadli;
-
-  const accountNumberDisplayFadli = document.getElementById(
-    "account-number-display-fadli",
-  );
-  if (accountNumberDisplayFadli) accountNumberDisplayFadli.textContent = accountNumberFadli;
-
-  const accountNameDisplay = document.getElementById("account-name-display");
-  if (accountNameDisplay) accountNameDisplay.textContent = accountName;
-
   const coupleNamesFooter = document.getElementById("couple-names-footer");
   if (coupleNamesFooter)
     coupleNamesFooter.textContent = `${groomName} & ${brideName}`;
@@ -163,7 +139,7 @@ async function onConfigChange(config) {
     if (btn.id === "open-invitation-btn") {
       btn.style.background = `linear-gradient(to right, ${primaryColor}, #e0cc9f)`;
       btn.style.borderImage = `linear-gradient(to right, ${primaryColor}, #e0cc9f)`;
-    } else if (btn.id === "maps-btn-satu" || btn.id === "copy-account-btn" || btn.id === "maps-btn-dua") {
+    } else if (btn.id === "maps-btn-satu" || btn.id === "copy-account-btn-valery" || btn.id === "maps-btn-dua" || btn.id === "copy-account-btn-fadli" || btn.id === "expandGift") {
       btn.style.background = `linear-gradient(to right, #e0cc9f, ${primaryColor})`;
     }
   });
@@ -185,8 +161,12 @@ document
 document.getElementById("maps-btn-satu").addEventListener("click", openMapSatu);
 document.getElementById("maps-btn-dua").addEventListener("click", openMapsDua);
 document
-  .getElementById("copy-account-btn")
-  .addEventListener("click", copyAccountNumber);
+  .getElementById("copy-account-btn-valery")
+  .addEventListener("click", copyAccountNumberValery);
+document
+  .getElementById("copy-account-btn-fadli")
+  .addEventListener("click", copyAccountNumberFadli);
+
 function mapToCapabilities(config) {
   return {
     recolorables: [
@@ -360,9 +340,30 @@ function openMapsDua() {
   window.open(mapsLinkDua, "_blank", "noopener,noreferrer");
 }
 
-function copyAccountNumber() {
+function copyAccountNumberValery() {
   const config = window.elementSdk ? window.elementSdk.config : {};
-  const accountNumber = config.account_number || defaultConfig.account_number;
+  const accountNumber = config.account_number_valery || defaultConfig.account_number_valery;
+
+  navigator.clipboard
+    .writeText(accountNumber)
+    .then(() => {
+      showToast("Nomor rekening berhasil disalin!");
+    })
+    .catch(() => {
+      // Fallback for older browsers
+      const textArea = document.createElement("textarea");
+      textArea.value = accountNumber;
+      document.body.appendChild(textArea);
+      textArea.select();
+      document.execCommand("copy");
+      document.body.removeChild(textArea);
+      showToast("Nomor rekening berhasil disalin!");
+    });
+}
+
+function copyAccountNumberFadli() {
+  const config = window.elementSdk ? window.elementSdk.config : {};
+  const accountNumber = config.account_number_fadli || defaultConfig.account_number_fadli;
 
   navigator.clipboard
     .writeText(accountNumber)
