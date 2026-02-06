@@ -173,6 +173,12 @@ document
   .getElementById("copy-account-btn-fadli")
   .addEventListener("click", copyAccountNumberFadli);
 document.getElementById("expandGift").addEventListener("click", openGiftCard);
+document.getElementById("attend-btn").addEventListener("click", attend);
+document.getElementById("not-attend-btn").addEventListener("click", notAttend);
+document.getElementById("submit-btn").addEventListener("click", submitMessage);
+const guestNameInput = document.getElementById("guest-name");
+const guestMessageInput = document.getElementById("guest-message");
+const guestList = document.getElementById("guest-list");
 
 function mapToCapabilities(config) {
   return {
@@ -444,8 +450,84 @@ function mapToEditPanelValues(config) {
   ]);
 }
 
-const revealElements = document.querySelectorAll(".card-reveal");
+let statusHadir = null; // "Hadir" atau "Tidak Hadir"
+function attend() {
+  statusHadir = "Hadir";
+  attendBtn.classList.add("ring-2", "ring-green-400");
+  notAttendBtn.classList.remove("ring-2", "ring-red-400");
+}
 
+function notAttend() {
+  statusHadir = "Tidak Hadir";
+  notAttendBtn.classList.add("ring-2", "ring-red-400");
+  attendBtn.classList.remove("ring-2", "ring-green-400");
+}
+
+function submitMessage() {
+  const name = guestNameInput.value.trim();
+  const message = guestMessageInput.value.trim();
+
+  if (!name) {
+    alert("Silakan masukkan nama.");
+    return;
+  }
+  if (!statusHadir) {
+    alert("Silakan pilih Hadir atau Tidak Hadir.");
+    return;
+  }
+
+  // Kirim data ke PHP
+  fetch("submit_rsvp.php", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: `name=${encodeURIComponent(name)}&status=${encodeURIComponent(statusHadir)}&message=${encodeURIComponent(message)}`
+  })
+  .then(res => res.json())
+  .then(data => {
+    if (data.success) {
+      alert("Terima kasih! Data RSVP berhasil dikirim.");
+
+      // Tambah ke daftar tamu di halaman
+      const li = document.createElement("li");
+      li.className = "flex items-center justify-between p-2 border rounded";
+
+      const nameSpan = document.createElement("span");
+      nameSpan.textContent = name;
+      nameSpan.className = statusHadir === "Hadir" ? "text-green-600 font-semibold" : "text-red-600 font-semibold";
+
+      const statusDot = document.createElement("span");
+      statusDot.className = `w-3 h-3 rounded-full ${
+        statusHadir === "Hadir" ? "bg-green-600" : "bg-red-600"
+      } inline-block mr-2`;
+
+      const messageP = document.createElement("p");
+      messageP.textContent = message;
+      messageP.className = "text-sm text-gray-700 mt-1";
+
+      const leftDiv = document.createElement("div");
+      leftDiv.className = "flex items-center";
+      leftDiv.appendChild(statusDot);
+      leftDiv.appendChild(nameSpan);
+
+      li.appendChild(leftDiv);
+      if (message) li.appendChild(messageP);
+
+      guestList.appendChild(li);
+
+      // Reset form
+      guestNameInput.value = "";
+      guestMessageInput.value = "";
+      statusHadir = null;
+      attendBtn.classList.remove("ring-2", "ring-green-400");
+      notAttendBtn.classList.remove("ring-2", "ring-red-400");
+    } else {
+      alert("Gagal mengirim: " + data.message);
+    }
+  })
+  .catch(err => console.error(err));
+}
+
+const revealElements = document.querySelectorAll(".card-reveal");
 const observer = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {

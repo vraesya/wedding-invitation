@@ -724,6 +724,61 @@
                 </div>
               </div>
 
+              <!-- Daftar Tamu -->
+              <div class="min-h-full relative z-10 card-reveal my-8 mx-4">
+                <h1 class="text-2xl font-bold mb-4 text-center">
+                  RSVP Pernikahan
+                </h1>
+
+                <!-- Nama Tamu -->
+                <input
+                  type="text"
+                  id="guest-name"
+                  placeholder="Masukkan nama kamu"
+                  class="w-full mb-4 px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-amber-400"
+                />
+
+                <!-- Tombol Hadir / Tidak Hadir -->
+                <div class="flex justify-center gap-4 mb-4">
+                  <button
+                    id="attend-btn"
+                    class="px-6 py-2 bg-green-500 text-white rounded font-semibold hover:bg-green-600 transition"
+                  >
+                    Hadir
+                  </button>
+                  <button
+                    id="not-attend-btn"
+                    class="px-6 py-2 bg-red-500 text-white rounded font-semibold hover:bg-red-600 transition"
+                  >
+                    Tidak Hadir
+                  </button>
+                </div>
+
+                <!-- Pesan -->
+                <textarea
+                  id="guest-message"
+                  placeholder="Tulis pesan untuk pengantin..."
+                  class="w-full mb-4 px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-amber-400"
+                  rows="3"
+                ></textarea>
+
+                <button
+                  id="submit-btn"
+                  class="w-full px-4 py-2 bg-amber-500 text-white rounded font-semibold hover:bg-amber-600 transition"
+                >
+                  Kirim
+                </button>
+              </div>
+
+              <!-- Daftar Tamu -->
+              <div
+                class="min-h-full relative z-10 card-reveal my-8 mx-4"
+              >
+                <h2 class="text-lg font-bold mb-2">Daftar Tamu</h2>
+                <ul id="guest-list" class="space-y-2">
+                  <!-- Tamu akan muncul di sini -->
+                </ul>
+              </div>
               <!-- Closing -->
               <div
                 class="relative flex flex-col items-center justify-center z-10 py-4 px-4 pb-20 mt-20 drop-shadow-[0_8px_16px_rgba(0,0,0,0.25)]"
